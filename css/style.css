@@ -1,0 +1,43 @@
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+nav.head {
+  background-color: #0077C2;
+}
+
+.container {
+  max-width: 1366px;
+}
+
+.header .h1 {
+  font-size: 1.5em;
+}
+
+.card {
+  border-radius: 1rem;
+  max-width: 300px;
+}
+
+.card .card-title {
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.card-img{
+  width:100%;
+  height: 25vh;
+  object-fit: contain;
+}
+
+#main .container{
+  background-color: #CFF8F4;
+}
+
+#main img{
+  background-color: #FFFFFF;
+}
+
+#func_fig .container{
+  max-width: 1000px;
+}
