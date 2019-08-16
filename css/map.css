@@ -1,0 +1,27 @@
+path {
+  fill: white;
+  stroke: black;
+  border: 0.5 px;
+  /* display: block;
+  margin: 0 auto;
+    a{
+      polygon,
+      path{
+        @include transition-property(opacity);
+        @include transition-duration(.5s);
+        @include transition-timing-function(ease);
+      }
+      &:hover,
+      &:focus{
+        cursor: pointer;
+        polygon,
+        path{
+          opacity: 0.25;
+        }
+      }
+   } */
+ }
+
+ path:hover {
+   fill: red;
+ }
