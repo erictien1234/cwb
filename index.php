@@ -10,8 +10,9 @@
   <div id="main">
     <div class="container">
       <div class="col-6 col-md-4 ml-5 py-2">
-        <div class="card p-2 shadow-sm">
-          <img src="/img/taiwan_H.png" alt="" class="img-fluid">
+        <div class="card p-2 shadow-sm" style="height: 400px ; width: 300px" id="map">
+          <!-- <img src="/img/taiwan_H.png" alt="" class="img-fluid"> -->
+          <script src="/js/map.js"></script>
         </div>
       </div>
     </div>
