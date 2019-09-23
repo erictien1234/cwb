@@ -23,6 +23,24 @@ nav.head {
   padding-top: 1rem;
 }
 
+.waterLight_img {
+  width: 5%;
+  height: auto;
+  margin: 1.2%;
+}
+
+.waterLight_date {
+  font-size: 1rem;
+  display:inline;
+  margin-right: 2rem;
+}
+
+.waterLight_hr {
+  width: 95%;
+  color: gray;
+  margin: 0.5rem;
+}
+
 #cross .map img{
   height: 50vh;
   object-fit: contain;
@@ -62,9 +80,9 @@ nav.head {
   background-color: #FFFFFF;
 }
 
-#func_fig .container{
+/* #func_fig .container{
   max-width: 1000px;
-}
+} */
 
 #footer .container{
   background-color: #0077C2;
@@ -72,4 +90,56 @@ nav.head {
 
 #footer h3{
   color:rgb(255, 255, 255);
+}
+
+.backicon{
+  height: 1.5rem;
+  width: 1.5rem;
+  object-fit: contain;
+  margin-right: 0.25rem;
+}
+
+.backclasssel{
+  background-color: #CFF8F4;
+}
+
+.backclasssel .nav-tabs .nav-link:active, .backclasssel .nav-tabs .nav-link.active, .backclasssel .nav-tabs .nav-link:hover, .backclasssel .nav-tabs .nav-link:focus{
+  border: 1px solid #bdbdbd;
+  border-bottom: none;
+}
+
+.backclasssel .nav-link.view:hover {
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.datatype{
+  border-radius: 0.3rem;
+}
+
+.datatype h5{
+  color: #FFF;
+  text-align: center;
+}
+
+#backright .card{
+  min-height: 30vh;
+}
+
+.arrow p{
+  text-align: center;
+}
+
+.tooltype{
+  border-radius: 0.3rem;
+  background-color: blue;
+}
+
+.tooltype h5{
+  color: #FFF;
+  text-align: center;
+}
+
+#dataview a{
+  margin-bottom: 3px;
+  line-height: 1.1;
 }

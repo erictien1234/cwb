@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-  $page = "crop";
+  $page = "AF";
 ?>
 <html lang="zh-TW" dir="ltr">
 <?php require_once "head.php"?>

@@ -9,10 +9,12 @@
 
   <div id="main">
     <div class="container">
-      <div class="col-6 col-md-4 ml-5 py-2">
-        <div class="card p-2 shadow-sm" style="height: 400px ; width: 300px" id="map">
-          <!-- <img src="/img/taiwan_H.png" alt="" class="img-fluid"> -->
-          <script src="/js/map.js"></script>
+      <div style="flex-direction: row ; flex: 1 ; display:flex">
+        <div style="flex:3 ; display:flex">
+          <div style="height:auto ; width:50% " id="map">
+            <!-- <img src="./img/taiwan_H.png" alt="" class="img-fluid"> -->
+            <script src="./js/map.js"></script>
+          </div>
         </div>
       </div>
     </div>
@@ -20,7 +22,7 @@
 
   <div id="func_fig">
     <div class="container my-4">
-      <div class="row">
+      <div class="row p-2">
         <div class="col-md-4 col-sm-6 d-flex py-2">
           <div class="card" herf="#">
             <h6 class="card-title">天氣氣候資訊</h6>

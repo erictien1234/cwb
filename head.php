@@ -5,6 +5,10 @@
   <![endif]-->
   <title>天氣與氣候資訊數位化應用服務平台
   <?php
+    if (isset($page));
+    else {
+      $page = "";
+    }
     switch ($page) {
       case 'weather':
         echo "- 天氣氣候服務瀏覽";
@@ -20,6 +24,9 @@
         break;
       case 'cross':
         echo "- 跨領域服務瀏覽";
+        break;
+      case 'login':
+        echo "- 會員登入";
         break;
     }
   ?>

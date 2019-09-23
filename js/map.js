@@ -5,7 +5,7 @@ let svg = d3.select("div#map").append("svg").attr("preserveAspectRatio", "xMinYM
             .attr("viewBox", "0 0 " + width + " " + height).style("background","white")
 var projection = d3.geoMercator().scale(4000).center([120.3,24]).translate([width/2,height/2]);
 var path = d3.geoPath().projection(projection);
-fetch('json/TaiwanCountySimplify.json')
+fetch('/json/TaiwanCountySimplify.json')
   .then(function(response) {
     return response.json();
   })

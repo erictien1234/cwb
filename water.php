@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-  $page = "water";
+  $page = "WR";
 ?>
 <html lang="zh-TW" dir="ltr">
 <?php require_once "head.php"?>

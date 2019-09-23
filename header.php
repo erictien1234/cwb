@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse flex-lg-column" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link h6" href="#">會員中心</a>
+            <a class="nav-link h6" href="/login.php">會員登入</a>
           </li>
           <li class="nav-item">
             <a class="nav-link h6" href="#">關於我們</a>
@@ -20,16 +20,16 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link h6 <?php if($page == "weather") echo "active" ?>" href="/weather.php">天氣氣候</a>
+            <a class="nav-link h6 <?php if($page == "LM") echo "active" ?>" href="/weather.php">天氣氣候</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link h6 <?php if($page == "water") echo "active" ?>" href="/water.php">水資源領域</a>
+            <a class="nav-link h6 <?php if($page == "WR") echo "active" ?>" href="/water.php">水資源領域</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link h6 <?php if($page == "crop") echo "active" ?>" href="/crop.php">農糧領域</a>
+            <a class="nav-link h6 <?php if($page == "AF") echo "active" ?>" href="/crop.php">農糧領域</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link h6 <?php if($page == "health") echo "active" ?>" href="/health.php">公衛領域</a>
+            <a class="nav-link h6 <?php if($page == "PH") echo "active" ?>" href="/health.php">公衛領域</a>
           </li>
           <li class="nav-item">
             <a class="nav-link h6 <?php if($page == "cross") echo "active" ?>" href="/cross.php">跨領域分析</a>

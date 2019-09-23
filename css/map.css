@@ -22,6 +22,10 @@ path {
    } */
  }
 
- path:hover {
-   fill: red;
- }
+path.focus{
+  fill: green;
+}
+
+path:hover {
+ fill: red;
+}

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-  $page = "weather";
+  $page = "LM";
 ?>
 <html lang="zh-TW" dir="ltr">
 <?php require_once "head.php"?>
