@@ -18,4 +18,7 @@ fetch('/json/TaiwanCountySimplify.json')
       .append("path")
       .attr("class","map")
       .attr("d", path)
+      .attr("id", function(d){
+        return d.properties.NAME_2014
+      })
   });

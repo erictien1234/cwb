@@ -49,7 +49,7 @@ test_button.addEventListener(
       let id = document.getElementById(`week${idx+1}_date`);
       id.innerText = value.substring(4,7)+value.substring(8,10);
     });
-
-    $("path.map").addClass("focus");
+    // const hsc = '新竹縣'
+    // $("path#" + hsc).addClass("focus");
     }
 )
