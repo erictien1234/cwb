@@ -23,14 +23,12 @@
             <label for="sel3" class="col-form-label col-5 col-md-3">地區</label>
             <select class="form-control-sm col-5 col-md-2 mr-auto" id="sel3">
               <option style="display:none"></option>
-              <option>1</option>
-              <option>2</option>
             </select>
             <label for="sel4" class="col-form-label col-5 col-md-3">起始時間</label>
             <input type="text" class="form-control-sm date col-5 col-md-2 mr-auto" id="sel4" placeholder="">
             <script>
-              $('*.date').datepicker({
-                format: "yyyy,mm,dd",
+              $('.date').datepicker({
+                format: "yyyy-mm-dd",
                 maxViewMode: 3,
                 todayBtn: "linked",
                 language: "zh-TW",
@@ -119,6 +117,9 @@
             </div>
             <script src="./js/lightChart.js"></script>
           </div>
+          <div class="container">
+
+          </div>
         </div>
       </div>
     </div>
@@ -127,11 +128,11 @@
 <script>
   $("#sel1").on("change",function(){
     $("#sel2").empty();
-    // $("#sel3").empty();
+    $("#sel3").empty();
     $("#sel4").val("");
     $("#sel2").append("<option style='display:none'>請選擇</option>");
     $.post("db_search.php", {
-      type: 'output',
+      type: 'length',
       field:'<?php echo $page ?>',
       output: $("#sel1").val()
     },
@@ -144,9 +145,18 @@
   })
   $("button.search").on("click",function(){
     if ($("#sel1").find('option:selected').val() && $("#sel2").find('option:selected').val() && $("#sel3").find('option:selected').val() && $("#sel4").val()) {
-      // $("img.result").show();
       $("h6.result").show();
       $("label.falseresult").hide();
+      $.post('db_search.php',{
+        type: 'data',
+        field: '<?php echo $page ?>',
+        output: $("#sel1 option:selected").text(),
+        length: $("#sel2 option:selected").text(),
+        where: $("#sel3 option:selected").text(),
+        date: $("#sel4").val()
+      }, function(data){
+        console.log(data);
+      })
     }
     else {
       $("label.falseresult").show();
@@ -154,7 +164,7 @@
   })
   $(document).ready(function(){
     $.post('db_search.php',{
-      type: 'field',
+      type: 'output',
       field:'<?php echo $page ?>'
     }, function(data){
       var splitsel = data.split(",");
@@ -163,4 +173,40 @@
       }
     });
   });
+  $("#sel2").on("change",function(){
+    $("#sel3").append("<option style='display:none'>請選擇</option>");
+    $.post('db_search.php',{
+      type: 'spatial',
+      field: '<?php echo $page ?>',
+      output: $("#sel1 option:selected").text(),
+      length: $("#sel2 option:selected").text()
+    }, function(data){
+      var splitsel = data.split(";");
+      console.log(splitsel);
+      for (var i = 0; i < splitsel.length-1; i++) {
+        for (var j = 0; j < splitsel[i].split(',').length-1; j++) {
+          $("#sel3").append("<option value='" + splitsel[i].split(',')[j] + "'>" + splitsel[i].split(',')[j] + "</option>")
+        }
+      }
+    })
+  });
+  $("#sel3").on("change",function(){
+    $.post('db_search.php',{
+      type: 'date',
+      field: '<?php echo $page ?>',
+      output: $("#sel1 option:selected").text(),
+      length: $("#sel2 option:selected").text(),
+      where: $("#sel3 option:selected").text()
+    }, function(data){
+      var splitsel = data.split(";");
+      $("#sel4").datepicker("setStartDate", splitsel[0].split(',')[0]);
+      $("#sel4").datepicker("setEndDate", splitsel[0].split(',')[1]);
+      console.log(splitsel[1].split(','));
+      if (splitsel.length > 1) {
+        let splitsel1 = splitsel[1].split(',');
+        $("#sel4").datepicker("setDatesDisabled", splitsel1);
+      }
+      $("#sel4").datepicker("update", splitsel[0].split(',')[0]);
+    })
+  })
 </script>

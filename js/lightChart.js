@@ -21,8 +21,9 @@ Date.prototype.addDays = function(days) {
 test_button.addEventListener(
   'click',
   function() {
-    //讀date
+    //讀data
     data.StartDate = $("#sel4").val();
+    data.Location = $("#sel3 :selected").text();
 
     data.Light.forEach( function(value, idx) {
       light_id[idx] = document.getElementById(`light_${idx+1}`);
@@ -49,7 +50,7 @@ test_button.addEventListener(
       let id = document.getElementById(`week${idx+1}_date`);
       id.innerText = value.substring(4,7)+value.substring(8,10);
     });
-    // const hsc = '新竹縣'
-    // $("path#" + hsc).addClass("focus");
+
+    $("path#" + data.Location).addClass("focus");
     }
 )

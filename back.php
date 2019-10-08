@@ -80,7 +80,25 @@
           </div>
         </div>
         <script>
-          $(document).on("click","#dataview .toview",function(){
+          $(document).on("click","#dataview .dikwin .toview",function(){
+            $("a.active").removeClass("active");
+            $("a.view").addClass("active");
+            $("#dataview > div").remove();
+            $("#dataview").load('dataview_view.php');
+            $.post('back_db_search.php',{
+              type: 'view',
+              servicetype: 'INPUT',
+              field: $("button.active").val(),
+              name: $(this).html()
+            }, function(data){
+              var splitsel = data.split(",");
+              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              for (var i = 1; i < splitsel.length; i++) {
+                $("div.metadata").append("<p>" + splitsel[i] + "</p>");
+              }
+            })
+          });
+          $(document).on("click","#dataview .dikwout .toview",function(){
             $("a.active").removeClass("active");
             $("a.view").addClass("active");
             $("#dataview > div").remove();
@@ -92,7 +110,62 @@
               name: $(this).html()
             }, function(data){
               var splitsel = data.split(",");
-              for (var i = 0; i < splitsel.length; i++) {
+              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              for (var i = 1; i < splitsel.length; i++) {
+                $("div.metadata").append("<p>" + splitsel[i] + "</p>");
+              }
+            })
+          });
+          $(document).on("click","#dataview .nameview .toview",function(){
+            $("a.active").removeClass("active");
+            $("a.view").addClass("active");
+            $("#dataview > div").remove();
+            $("#dataview").load('dataview_view.php');
+            $.post('back_db_search.php',{
+              type: 'view',
+              servicetype: 'OUTPUT',
+              field: $("button.active").val(),
+              name: $(this).html()
+            }, function(data){
+              var splitsel = data.split(",");
+              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              for (var i = 1; i < splitsel.length; i++) {
+                $("div.metadata").append("<p>" + splitsel[i] + "</p>");
+              }
+            })
+          });
+          $(document).on("click","#dataview .toolin .toview",function(){
+            $("a.active").removeClass("active");
+            $("a.view").addClass("active");
+            $("#dataview > div").remove();
+            $("#dataview").load('dataview_view.php');
+            $.post('back_db_search.php',{
+              type: 'view',
+              servicetype: 'INPUT',
+              field: $("button.active").val(),
+              name: $(this).html()
+            }, function(data){
+              var splitsel = data.split(",");
+              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              for (var i = 1; i < splitsel.length; i++) {
+                $("div.metadata").append("<p>" + splitsel[i] + "</p>");
+              }
+            })
+          });
+          $(document).on("click","#dataview .toolout .toview",function(){
+            $("a.active").removeClass("active");
+            $("a.view").addClass("active");
+            $("#dataview > div").remove();
+            $("#dataview").load('dataview_view.php');
+            $.post('back_db_search.php',{
+              type: 'view',
+              servicetype: 'OUTPUT',
+              field: $("button.active").val(),
+              name: $(this).html()
+            }, function(data){
+              var splitsel = data.split(",");
+              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              for (var i = 1; i < splitsel.length; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
             })

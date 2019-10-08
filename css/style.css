@@ -76,9 +76,9 @@ nav.head {
   background-color: #CFF8F4;
 }
 
-#main img{
+/* #main img{
   background-color: #FFFFFF;
-}
+} */
 
 /* #func_fig .container{
   max-width: 1000px;
@@ -121,25 +121,27 @@ nav.head {
   text-align: center;
 }
 
-#backright .card{
-  min-height: 30vh;
-}
-
 .arrow p{
   text-align: center;
 }
 
-.tooltype{
+/* .tooltype{
   border-radius: 0.3rem;
   background-color: blue;
-}
+} */
 
 .tooltype h5{
   color: #FFF;
   text-align: center;
+  border-radius: 0.3rem;
+  background-color: blue;
 }
 
 #dataview a{
   margin-bottom: 3px;
   line-height: 1.1;
+}
+
+.dikwcard{
+  min-height: 30vh;
 }
