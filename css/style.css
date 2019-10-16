@@ -24,7 +24,7 @@ nav.head {
 }
 
 .waterLight_img {
-  width: 5%;
+  width: inherit;
   height: auto;
   margin: 1.2%;
 }

@@ -33,13 +33,13 @@
     </div>
   </div> -->
   <div class="container">
-    <div class="row d-flex align-items-center">
-      <div class="col-5 d-flex">
+    <div class="row d-flex py-4">
+      <div class="col-4 d-flex">
         <div style="height:auto ; width:100% " id="map">
           <script src="./js/map.js"></script>
         </div>
       </div>
-      <div class="col-7">
+      <div class="col-8">
         <div class="marquee">
           <img src="/img/weatherM.png" alt="" class="img-fluid">
         </div>

@@ -9,12 +9,12 @@
   //   die( header( 'location: /error.php' ) );
   // }
   require_once "db.php";
-  // $_POST['type'] = 'spatial';
+  // $_POST['type'] = 'data';
   // $_POST['field'] = 'WR';
-  // $_POST['output'] = '各週之水庫蓄水量預報(Q90)';
+  // $_POST['output'] = 'Q90水庫模擬入流量';
   // $_POST['length'] = '未來三個月';
-  // $_POST['where'] = '新竹市';
-  // $_POST['date'] = '2017-01-01';
+  // $_POST['where'] = '上坪';
+  // $_POST['date'] = '2019-01-09';
 
   switch ($_POST['type']) {
     case 'output':
@@ -106,23 +106,35 @@
           $cname = $row['st'];
         }
       }
-      $sql1 = "SELECT TIME_START FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
-      $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
-      if (mysqli_num_rows($result1) > 0) {
-        while($row1 = mysqli_fetch_assoc($result1)) {
-          array_push($date, $row1['TIME_START']);
+      if ($table == 'Q90' || $table == 'q90') {
+        $sql1 = "SELECT TIME FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            array_push($date, $row1['TIME']);
+          }
+        }
+        echo date("Y") . '-' . $date[0] . ',' . date("Y") . '-' . end($date) . ';';
+      } else {
+        $sql1 = "SELECT TIME_START FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            array_push($date, $row1['TIME_START']);
+          }
+        }
+        echo $date[0] . ',' . end($date) . ';';
+        $d = new DateTime($date[0]);
+        while ($d != new DateTime(end($date))) {
+          date_add($d, date_interval_create_from_date_string('1 day'));
+          if ($d != new DateTime($date[$dcount])) {
+            echo date_format($d,'Y-m-d') . ',';
+          } else {
+            $dcount++;
+          }
         }
       }
-      echo $date[0] . ',' . end($date) . ';';
-      $d = new DateTime($date[0]);
-      while ($d != new DateTime(end($date))) {
-        date_add($d, date_interval_create_from_date_string('1 day'));
-        if ($d != new DateTime($date[$dcount])) {
-          echo date_format($d,'Y-m-d') . ',';
-        } else {
-          $dcount++;
-        }
-      }
+
       break;
 
     case 'data':
@@ -133,15 +145,24 @@
       $date = $_POST['date'];
       $table;
       $cname;
-      $sql = "SELECT o.TABLE_ID as ot, s.TABLE_ID as st FROM OUTPUT o inner JOIN SCALE_SPATIAL s on s.SCALE_SPATIAL_ID = o.SCALE_SPATIAL_ID inner JOIN TIME_LENGTH l on l.TIME_LENGTH_ID = o.TIME_LENGTH_ID where OUTPUT_NAME = '{$output}' AND FIELD_ID = '{$field}' AND TIME_LENGTH_NAME = '{$length}'";
+      $ptype;
+      $stime;
+      $sql = "SELECT o.TABLE_ID as ot, s.TABLE_ID as st, PRESENTING_TYPE_ID, SCALE_TIME_NAME FROM OUTPUT o inner JOIN SCALE_SPATIAL s on s.SCALE_SPATIAL_ID = o.SCALE_SPATIAL_ID inner JOIN TIME_LENGTH l on l.TIME_LENGTH_ID = o.TIME_LENGTH_ID inner JOIN SCALE_TIME stime on stime.SCALE_TIME_ID = o.SCALE_TIME_ID where OUTPUT_NAME = '{$output}' AND FIELD_ID = '{$field}' AND TIME_LENGTH_NAME = '{$length}'";
       $result = mysqli_query($_SESSION['link'] , $sql) or die("MySQL query error");
       if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
           $table = $row['ot'];
           $cname = $row['st'];
+          $ptype = $row['PRESENTING_TYPE_ID'];
+          $stime = $row['SCALE_TIME_NAME'];
         }
       }
-      $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
+      echo $ptype . ',' . $stime . ',';
+      if ($table == 'Q90' || $table == 'q90') {
+        $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME = '" . str_replace(date("Y") . '-', '', $date) . "' AND {$cname}_NAME = '{$where}'";
+      } else {
+        $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
+      }
       $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
       if (mysqli_num_rows($result1) > 0) {
         while($row1 = mysqli_fetch_assoc($result1)) {

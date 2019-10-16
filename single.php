@@ -40,52 +40,52 @@
           </form>
           <div class="ml-auto pr-3 py-3">
             <label class="falseresult pr-2" style="display:none;color:rgb(255, 0, 0)">請選取完整項目</label>
-            <button type="button" name="button" class="btn btn-primary search" id="singlesearch">查詢</button>
+            <button type="button" name="button" class="btn btn-primary search" id="singlesearchlight">查詢light</button>
+            <button type="button" name="button" class="btn btn-primary search" id="singlesearchpie">查詢pie</button>
+            <button type="button" name="button" class="btn btn-primary search" id="singlesearchline">查詢line</button>
           </div>
         </div>
         <div class="card mt-3 flex-fill">
           <h6 class="card-title result" style="display:none">後三個月各週燈號推估：新竹</h6>
           <!-- <img src="/img/light.png" alt="" class="card-image img-fluid p-4 my-auto result" style="display:none"> -->
-          <div class="container">
-            <div id="lightChart">
-              <div>
-                <span>
+          <div class="container" id="present">
+            <!-- <div id="lightChart" class="row d-flex justify-content-center">
+                <span class="col-1">
                   <img id="light_1" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_2" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_3" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_4" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_5" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_6" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_7" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_8" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_9" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_10" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_11" class="waterLight_img">
                 </span>
-                <span>
+                <span class="col-1">
                   <img id="light_12" class="waterLight_img">
                 </span>
-              </div>
               <div>
                 <span>
                   <hr class="waterLight_hr">
@@ -114,11 +114,8 @@
                   <p id="week7_date" class="waterLight_date"></p>
                 </span>
               </div>
-            </div>
+            </div> -->
             <script src="./js/lightChart.js"></script>
-          </div>
-          <div class="container">
-
           </div>
         </div>
       </div>
