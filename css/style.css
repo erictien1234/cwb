@@ -24,19 +24,20 @@ nav.head {
 }
 
 .waterLight_img {
-  width: inherit;
+  width: 100%;
   height: auto;
-  margin: 1.2%;
+  /* margin: 1.2%; */
 }
 
 .waterLight_date {
-  font-size: 1rem;
+  font-size: 0.8rem;
   display:inline;
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
+  /* text-align: center; */
 }
 
 .waterLight_hr {
-  width: 95%;
+  /* width: 100%; */
   color: gray;
   margin: 0.5rem;
 }
@@ -88,8 +89,13 @@ nav.head {
   background-color: #0077C2;
 }
 
-#footer h3{
+#footer p{
+  display: block;
   color:rgb(255, 255, 255);
+}
+
+#footer a{
+  color:gray;
 }
 
 .backicon{

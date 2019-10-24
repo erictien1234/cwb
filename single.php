@@ -30,7 +30,7 @@
             <input type="text" class="form-control-sm date col-5 col-md-2 mr-auto" id="sel4" placeholder="">
             <script>
               $('*.date').datepicker({
-                format: "yyyy,mm,dd",
+                format: "yyyy-mm-dd",
                 maxViewMode: 3,
                 todayBtn: "linked",
                 language: "zh-TW",
@@ -44,14 +44,13 @@
             <label class="falseresult pr-3" style="display:none;color:rgb(255, 0, 0)">請選取完整項目</label>
             <button type="button" name="button" class="btn btn-primary search" id="singlesearchlight">查詢light</button>
             <button type="button" name="button" class="btn btn-primary search" id="singlesearchpie">查詢pie</button>
-            <button type="button" name="button" class="btn btn-primary search" id="singlesearchline">查詢line</button>          </div>
-            <button type="button" name="button" class="btn btn-primary search" id="singlesearchbar">查詢bar</button> 
+            <button type="button" name="button" class="btn btn-primary search" id="singlesearchline">查詢line</button>
+            <button type="button" name="button" class="btn btn-primary search" id="singlesearchbar">查詢bar</button>
           </div>
         </div>
         <div class="card mt-3 flex-fill">
-          <h6 class="card-title result" style="display:none">後三個月各週燈號推估：新竹</h6>
-          <!-- <img src="/img/light.png" alt="" class="card-image img-fluid p-4 my-auto result" style="display:none"> -->
-          <div class="container" id="present">
+          <h6 class="card-title resulttitle"></h6>
+          <div class="container d-flex flex-fill align-items-center flex-wrap" id="present">
             <!-- <div id="lightChartContainer" class="container">
             </div>
             <div id="pieChartContainer" class="container">
@@ -87,6 +86,7 @@
     })
   })
   $("button.search").on("click",function(){
+
     if ($("#sel1").find('option:selected').val() && $("#sel2").find('option:selected').val() && $("#sel3").find('option:selected').val() && $("#sel4").val()) {
       $("h6.result").show();
       $("label.falseresult").hide();
@@ -99,6 +99,16 @@
         date: $("#sel4").val()
       }, function(data){
         console.log(data);
+        // var splitdata = data.split(',');
+        // for (var i = 0; i < splitdata[0].split(';').length; i++) {
+        //   switch (splitdata[0].split(';')[i]) {
+        //     case 'A':
+        //
+        //       break;
+        //
+        //   }
+        // }
+        $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text())
       })
     }
     else {

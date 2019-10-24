@@ -24,7 +24,7 @@ var pie_data = {
       'Yellow',
       'Blue'
     ]
-  }, 
+  },
   StartDate: "2019,09,01",
   EndDate: "2019,11,24",
   Location: "新竹縣",
@@ -88,46 +88,50 @@ test_button_light.addEventListener(
   function() {
     //讀date
     light_data.StartDate = $("#sel4").val();
+    $("div#present").empty();
 
     //make HTML
     const lightChartContainer =document.createElement("div");
     lightChartContainer.setAttribute("id", "lightChartContainer");
-    lightChartContainer.setAttribute("class", "container");
-    const lightChart = document.createElement("div");
-    lightChart.setAttribute("id", "lightChart");
+    // lightChartContainer.setAttribute("class", "container");
+    // const lightChart = document.createElement("div");
+    // lightChart.setAttribute("id", "lightChart");
     const imgSpanContainer = document.createElement("div");
-    imgSpanContainer.setAttribute("class", "row");
+    imgSpanContainer.setAttribute("class", "row flex-row flex-nowrap");
     for (let i=0; i<12; i++) {
       const newSpan = document.createElement("span");
       const newImg = document.createElement("img");
       newImg.setAttribute("id", `light_${i+1}`);
       newImg.setAttribute("class", "waterLight_img");
-      newSpan.setAttribute("class", "col-1")
+      newSpan.setAttribute("style", "flex:0.25 0.25;margin-left: 1% ;margin-right: 1%")
       newSpan.appendChild(newImg);
       imgSpanContainer.appendChild(newSpan);
     }
-    lightChart.appendChild(imgSpanContainer);
+    lightChartContainer.appendChild(imgSpanContainer);
     const hr = document.createElement("hr");
     hr.setAttribute("class", "waterLight_hr");
-    const spanOfHr = document.createElement("span");
+    // const spanOfHr = document.createElement("span");
     const hrContainer = document.createElement("div");
-    spanOfHr.appendChild(hr);
-    hrContainer.appendChild(spanOfHr);
-    lightChart.appendChild(hrContainer);
+    // spanOfHr.appendChild(hr);
+    // hrContainer.appendChild(hr);
+    lightChartContainer.appendChild(hr);
     const pSpanContainer = document.createElement("div");
-    pSpanContainer.setAttribute("style", "justify-content: space-between");
-    for (let i=0; i<7; i++) {
+    pSpanContainer.setAttribute("class", "row flex-nowrap");
+    // pSpanContainer.setAttribute("style", "justify-content: space-between");
+    for (let i=0; i<6; i++) {
       const newSpan = document.createElement("span");
       const newP = document.createElement("p");
+      // newSpan.setAttribute("class", "col-1");
+      newSpan.setAttribute("style", "text-align:left;flex:0.5 0.5;margin-left:1.5%;margin-right:1.5%");
       newP.setAttribute("id", `week${i+1}_date`);
       newP.setAttribute("class", "waterLight_date");
       newSpan.appendChild(newP);
       pSpanContainer.appendChild(newSpan);
     }
-    lightChart.appendChild(pSpanContainer);
-    lightChartContainer.appendChild(lightChart);
+    lightChartContainer.appendChild(pSpanContainer);
+    // lightChartContainer.appendChild(lightChart);
     document.getElementById("present").appendChild(lightChartContainer);
-    
+
     // data input
     light_data.Light.forEach( function(value, idx) {
       light_id[idx] = document.getElementById(`light_${idx+1}`);
@@ -151,8 +155,6 @@ test_button_light.addEventListener(
       let id = document.getElementById(`week${idx+1}_date`);
       id.innerText = value.substring(4,7)+value.substring(8,10);
     });
-    // const hsc = '新竹縣'
-    // $("path#" + hsc).addClass("focus");
     }
 )
 
@@ -188,6 +190,13 @@ test_button_line.addEventListener(
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: line_data.WaterStorage,
+      options: {
+        elements: {
+          line: {
+            tension: 0
+          }
+        }
+      }
     });
   }
 )
