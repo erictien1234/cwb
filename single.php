@@ -5,7 +5,7 @@
         <div style="height:auto ; width:100% " id="map">
           <script src="/js/map.js"></script>
           <script>
-            rasterMap();
+            normalMap();
           </script>
         </div>
       </div>
@@ -94,7 +94,6 @@
     })
   })
   $("button.search").on("click",function(){
-
     if ($("#sel1").find('option:selected').val() && $("#sel2").find('option:selected').val() && $("#sel3").find('option:selected').val() && $("#sel4").val()) {
       $("h6.result").show();
       $("label.falseresult").hide();
@@ -107,15 +106,16 @@
         date: $("#sel4").val()
       }, function(data){
         console.log(data);
-        // var splitdata = data.split(',');
-        // for (var i = 0; i < splitdata[0].split(';').length; i++) {
-        //   switch (splitdata[0].split(';')[i]) {
-        //     case 'A':
-        //
-        //       break;
-        //
-        //   }
-        // }
+        // 呈現控制
+        var splitdata = data.split(',');
+        for (var i = 0; i < splitdata[0].split(';').length; i++) {
+          switch (splitdata[0].split(';')[i]) {
+            case 'A':
+              raster
+              break;
+
+          }
+        }
         $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text())
       })
     }

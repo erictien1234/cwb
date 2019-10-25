@@ -84,6 +84,8 @@
           }, function(data){
             if (data == 'success') {
               alert('修改屬性資料已傳至平台管理員')
+            } else {
+              alert('錯誤，請連繫平台管理員。錯誤訊息：' + data)
             }
           })
         })

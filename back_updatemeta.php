@@ -34,7 +34,7 @@
   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
-  $sql = "INSERT INTO METAUPDATE (username,FIELD_ID,NAME,DIKW_ID,SCALE_SPATIAL_NAME,SCALE_TIME_NAME,TIME_LENGTH_NAME,UNIT,PUBLIC) VALUES ('$user','$field','$name','$dikw','$spatial','$stime','$timel','$unit','$public')";
+  $sql = "INSERT INTO metaupdate (username,FIELD_ID,NAME,DIKW_ID,SCALE_SPATIAL_NAME,SCALE_TIME_NAME,TIME_LENGTH_NAME,UNIT,PUBLIC) VALUES ('$user','$field','$name','$dikw','$spatial','$stime','$timel','$unit','$public')";
   if (mysqli_query($conn, $sql)) {
     echo "success";
   } else {

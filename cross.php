@@ -14,6 +14,9 @@
           <div style="height:auto ; width:100% " id="map">
             <!-- <img src="./img/taiwan_H.png" alt="" class="img-fluid"> -->
             <script src="/js/map.js"></script>
+            <script>
+              normalMap();
+            </script>
           </div>
           <div class="card">
             <div class="btn-group m-3" role="group" aria-label="Basic example">
