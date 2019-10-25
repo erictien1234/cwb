@@ -3,8 +3,10 @@
     <div class="row">
       <div class="col-6 col-md-4 d-flex">
         <div style="height:auto ; width:100% " id="map">
-          <!-- <img src="./img/taiwan_H.png" alt="" class="img-fluid"> -->
           <script src="/js/map.js"></script>
+          <script>
+            normalMap();
+          </script>
         </div>
       </div>
       <div class="col-6 col-md-8 d-flex flex-column">
@@ -60,7 +62,13 @@
               <canvas id="myLineChart"></canvas>
             </div> -->
             <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-            <script src="./js/chart.js"></script>
+            <script src="./js/chart_new.js"></script>
+            <script>
+              lightChart()
+              pieChart()
+              lineChart()
+              barChart()
+            </script>
           </div>
         </div>
       </div>

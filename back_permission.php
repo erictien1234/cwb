@@ -19,7 +19,7 @@
   if ($_SESSION[$user] == true) {
     if ($usertype == $_POST['field'] || $usertype == 'admin') {
       echo '<label class="col-4 text-right p-0 my-auto mr-2">進階功能</label>' . ',';
-      echo '<button type="button" class="btn btn-success mx-3" value="">修改屬性</button>' . ',';
+      echo '<button type="button" class="btn btn-success mx-3" data-toggle="modal" data-target="#changemeta">修改屬性</button>' . ',';
       echo '<button type="button" class="btn btn-info mx-3" value="">更新數據</button>';
     }
   }

@@ -36,7 +36,10 @@
     <div class="row d-flex py-4">
       <div class="col-4 d-flex">
         <div style="height:auto ; width:100% " id="map">
-          <script src="./js/map.js"></script>
+          <script src="/js/map.js"></script>
+          <script>
+            normalMap();
+          </script>
         </div>
       </div>
       <div class="col-8">

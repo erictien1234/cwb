@@ -92,7 +92,7 @@
               name: $(this).html()
             }, function(data){
               var splitsel = data.split(",");
-              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              $("h5.inout").text(splitsel[0] + $("button.active").text());
               for (var i = 1; i < splitsel.length; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
@@ -110,7 +110,7 @@
               name: $(this).html()
             }, function(data){
               var splitsel = data.split(",");
-              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              $("h5.inout").text(splitsel[0] + $("button.active").text());
               for (var i = 1; i < splitsel.length; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
@@ -128,7 +128,7 @@
               name: $(this).html()
             }, function(data){
               var splitsel = data.split(",");
-              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              $("h5.inout").text(splitsel[0] + $("button.active").text());
               for (var i = 1; i < splitsel.length; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
@@ -146,7 +146,7 @@
               name: $(this).html()
             }, function(data){
               var splitsel = data.split(",");
-              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              $("h5.inout").text(splitsel[0] + $("button.active").text());
               for (var i = 1; i < splitsel.length; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
@@ -164,7 +164,7 @@
               name: $(this).html()
             }, function(data){
               var splitsel = data.split(",");
-              $("h5.inout").text($("button.active").text() + splitsel[0]);
+              $("h5.inout").text(splitsel[0] + $("button.active").text());
               for (var i = 1; i < splitsel.length; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }

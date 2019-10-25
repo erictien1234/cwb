@@ -11,12 +11,6 @@
           <li class="nav-item">
             <a class="nav-link h6" href="/login.php">會員登入</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link h6" href="#">關於我們</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link h6" href="#">聯繫我們</a>
-          </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
