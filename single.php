@@ -5,7 +5,7 @@
         <div style="height:auto ; width:100% " id="map">
           <script src="/js/map.js"></script>
           <script>
-            normalMap();
+            rasterMap();
           </script>
         </div>
       </div>
