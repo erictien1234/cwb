@@ -93,9 +93,10 @@
             }, function(data){
               var splitsel = data.split(",");
               $("h5.inout").text(splitsel[0] + $("button.active").text());
-              for (var i = 1; i < splitsel.length; i++) {
+              for (var i = 1; i < splitsel.length-1; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
+              $("button.download").attr('value', splitsel.slice(-1).pop());
             })
           });
           $(document).on("click","#dataview .dikwout .toview",function(){
@@ -111,9 +112,10 @@
             }, function(data){
               var splitsel = data.split(",");
               $("h5.inout").text(splitsel[0] + $("button.active").text());
-              for (var i = 1; i < splitsel.length; i++) {
+              for (var i = 1; i < splitsel.length-1; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
+              $("button.download").attr('value', splitsel.slice(-1).pop());
             })
           });
           $(document).on("click","#dataview .nameview .toview",function(){
@@ -129,9 +131,10 @@
             }, function(data){
               var splitsel = data.split(",");
               $("h5.inout").text(splitsel[0] + $("button.active").text());
-              for (var i = 1; i < splitsel.length; i++) {
+              for (var i = 1; i < splitsel.length-1; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
+              $("button.download").attr('value', splitsel.slice(-1).pop());
             })
           });
           $(document).on("click","#dataview .toolin .toview",function(){
@@ -147,9 +150,10 @@
             }, function(data){
               var splitsel = data.split(",");
               $("h5.inout").text(splitsel[0] + $("button.active").text());
-              for (var i = 1; i < splitsel.length; i++) {
+              for (var i = 1; i < splitsel.length-1; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
+              $("button.download").attr('value', splitsel.slice(-1).pop());
             })
           });
           $(document).on("click","#dataview .toolout .toview",function(){
@@ -165,9 +169,10 @@
             }, function(data){
               var splitsel = data.split(",");
               $("h5.inout").text(splitsel[0] + $("button.active").text());
-              for (var i = 1; i < splitsel.length; i++) {
+              for (var i = 1; i < splitsel.length-1; i++) {
                 $("div.metadata").append("<p>" + splitsel[i] + "</p>");
               }
+              $("button.download").attr('value', splitsel.slice(-1).pop());
             })
           })
         </script>

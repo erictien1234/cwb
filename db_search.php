@@ -76,14 +76,31 @@
         }
       }
       for ($i=0; $i < count($spatial); $i++) {
-        $sql1 = "SELECT DISTINCT $cname[$i]_NAME FROM $table[$i] t inner JOIN $cname[$i] c on t.$cname[$i]_ID = c.$cname[$i]_ID";
-        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
-        if (mysqli_num_rows($result1) > 0) {
-          while($row1 = mysqli_fetch_assoc($result1)) {
-            echo $row1[$cname[$i].'_NAME'] . ',';
+        if ($spatial[$i] == '鄉政區') {
+          // $county = [];
+          // $sql1 = "SELECT DISTINCT COUNTY_NAME FROM $table[$i] t inner JOIN COUNTY c on t.COUNTY_ID = c.COUNTY_ID";
+          // $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+          // $sql2 = "SELECT DISTINCT DISTRICT_NAME FROM $table[$i] t inner JOIN DISTRICT d on t.DISTRICT_ID = d.DISTRICT_ID";
+          // $result2 = mysqli_query($_SESSION['link'] , $sql2) or die("MySQL query error");
+          $sql1 = "SELECT DISTINCT $cname[$i]_NAME FROM $table[$i] t inner JOIN $cname[$i] c on t.$cname[$i]_ID = c.$cname[$i]_ID";
+          $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+          if (mysqli_num_rows($result1) > 0) {
+            while($row1 = mysqli_fetch_assoc($result1)) {
+              echo $row1[$cname[$i].'_NAME'] . ',';
+            }
           }
+          echo ';';
+        } else {
+          $sql1 = "SELECT DISTINCT $cname[$i]_NAME FROM $table[$i] t inner JOIN $cname[$i] c on t.$cname[$i]_ID = c.$cname[$i]_ID";
+          $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+          if (mysqli_num_rows($result1) > 0) {
+            while($row1 = mysqli_fetch_assoc($result1)) {
+              echo $row1[$cname[$i].'_NAME'] . ',';
+            }
+          }
+          echo ';';
         }
-        echo ';';
+
       }
       break;
 
@@ -115,7 +132,7 @@
         }
         echo date("Y") . '-' . $date[0] . ',' . date("Y") . '-' . end($date) . ';';
       } else {
-        $sql1 = "SELECT TIME_START FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
+        $sql1 = "SELECT DISTINCT TIME_START FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
@@ -161,13 +178,61 @@
       echo $ptype . ',' . $stime . ',' . $sname . ',';
       if ($table == 'Q90' || $table == 'q90') {
         $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME = '" . str_replace(date("Y") . '-', '', $date) . "' AND {$cname}_NAME = '{$where}'";
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            echo $row1['DATA'];
+          }
+        }
+      } elseif (strpos($ptype,'A') !== false) {
+        $sql1 = "SELECT LABEL, DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_IDWHERE TIME_START = '{$date}'";
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            echo '[' . $row1['LABEL'] . '=' . $row1['DATA'] . ']';
+          }
+        }
+      } elseif ($cname == 'taiwangrid' || $cname == 'TAIWANGRID') {
+        $sql1 = "SELECT DATA, TAIWANGRID_X, TAIWANGRID_Y FROM {$table} t WHERE TIME = '{$date}'";
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            echo '[' . $row1['TAIWANGRID_X'] . ',' . $row1['TAIWANGRID_Y'] . ',[' . $row1['DATA'] . ']]';
+          }
+        }
+      } elseif ($table == 'seasonal_outlook_flow' || $table == 'SEASONAL_OUTLOOK_FLOW') {
+        echo ':';
+        $outputarray=[];
+        $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            // echo $row1['DATA'];
+            $a = substr($row1['DATA'],1,-1);
+            $a = explode(',',$a);
+            foreach($a as $value){
+              $value = floatval($value);
+            }
+            array_push($outputarray, $a);
+          }
+        }
+        $outputarray = array_map(null, ...$outputarray);
+        for ($i=0; $i < count($outputarray)-1; $i++) {
+          sort($outputarray[$i]);
+        }
+        for ($i=0; $i < 5; $i++) {
+          echo '[';
+          for ($j=0; $j < count($outputarray)-1; $j++) {
+            echo $outputarray[$j][floor($i*299/4)] . ',';
+          }
+          echo ']';
+        }
       } else {
         $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
-      }
-      $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
-      if (mysqli_num_rows($result1) > 0) {
-        while($row1 = mysqli_fetch_assoc($result1)) {
-          echo $row1['DATA'];
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            echo $row1['DATA'];
+          }
         }
       }
   }

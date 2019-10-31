@@ -25,25 +25,26 @@
               <button type="button" class="btn btn-secondary fieldsel" value="AF">農糧</button>
               <button type="button" class="btn btn-secondary fieldsel" value="PH">公衛</button>
             </div>
+            <h6 class="mx-2 my-0">請選取服務：</h3>
             <form class="form-inline">
               <label for="sel1" class="col-form-label col-5 col-md-3">產出選取</label>
-              <select class="form-control-sm col-5 col-md-2 mr-auto sel1" id="sel1">
+              <select class="form-control-sm col-5 col-md-3 mr-auto sel1" id="sel1">
                 <option style="display:none"></option>
               </select>
               <label for="sel2" class="col-form-label col-5 col-md-3">時間長度</label>
-              <select class="form-control-sm col-5 col-md-2 mr-auto" id="sel2">
+              <select class="form-control-sm col-5 col-md-3 mr-auto" id="sel2">
                 <option style="display:none"></option>
               </select>
             </form>
             <form action="" class="form-inline">
               <label for="sel3" class="col-form-label col-5 col-md-3">地區</label>
-              <select class="form-control-sm col-5 col-md-2 mr-auto" id="sel3">
+              <select class="form-control-sm col-5 col-md-3 mr-auto" id="sel3">
                 <option style="display:none"></option>
                 <option>1</option>
                 <option>2</option>
               </select>
               <label for="sel4" class="col-form-label col-5 col-md-3">起始時間</label>
-              <input type="text" class="form-control-sm date col-5 col-md-2 mr-auto" id="sel4" placeholder="">
+              <input type="text" class="form-control-sm date col-5 col-md-3 mr-auto" id="sel4" placeholder="">
               <script>
                 $('*.date').datepicker({
                   format: "yyyy-mm-dd",

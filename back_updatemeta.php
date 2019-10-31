@@ -21,6 +21,7 @@
   // $_POST['PUBLIC'] = '7';
 
   $user= $_POST['user'];
+  $time= (strftime("%Y. %B %d. %A. %X"));
   $field= $_POST['FIELD_ID'];
   $name= $_POST['NAME'];
   $dikw= $_POST['DIKW_ID'];
@@ -34,7 +35,7 @@
   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
-  $sql = "INSERT INTO metaupdate (username,FIELD_ID,NAME,DIKW_ID,SCALE_SPATIAL_NAME,SCALE_TIME_NAME,TIME_LENGTH_NAME,UNIT,PUBLIC) VALUES ('$user','$field','$name','$dikw','$spatial','$stime','$timel','$unit','$public')";
+  $sql = "INSERT INTO metaupdate (username,TIME,FIELD_ID,NAME,DIKW_ID,SCALE_SPATIAL_NAME,SCALE_TIME_NAME,TIME_LENGTH_NAME,UNIT,PUBLIC) VALUES ('$user','$time','$field','$name','$dikw','$spatial','$stime','$timel','$unit','$public')";
   if (mysqli_query($conn, $sql)) {
     echo "success";
   } else {

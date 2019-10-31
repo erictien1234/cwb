@@ -9,8 +9,9 @@
           </script>
         </div>
       </div>
-      <div class="col-6 col-md-8 d-flex flex-column">
+      <div class="col-6 col-md-8 d-flex flex-column p-0">
         <div class="card pt-3">
+          <h6 class="mx-2 my-0">請選取服務：</h3>
           <form class="form-inline">
             <label for="sel1" class="col-form-label col-5 col-md-3">產出選取</label>
             <select class="form-control-sm col-5 col-md-2 mr-auto sel1" id="sel1">
@@ -106,16 +107,19 @@
         date: $("#sel4").val()
       }, function(data){
         console.log(data);
-        // 呈現控制
-        var splitdata = data.split(',');
-        for (var i = 0; i < splitdata[0].split(';').length; i++) {
-          switch (splitdata[0].split(';')[i]) {
-            case 'A':
-              raster
-              break;
 
-          }
-        }
+        // // 呈現控制
+        // var splitdata = data.split(',');
+        // for (var i = 0; i < splitdata[0].split(';').length; i++) {
+        //   switch (splitdata[0].split(';')[i]) {
+        //     case 'A':
+        //       raster
+        //       break;
+        //
+        //   }
+        // }
+
+
         $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text())
       })
     }
