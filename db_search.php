@@ -164,7 +164,8 @@
       $ptype;
       $stime;
       $sname;
-      $sql = "SELECT o.TABLE_ID as ot, s.TABLE_ID as st, PRESENTING_TYPE_ID, SCALE_TIME_NAME, SCALE_SPATIAL_NAME FROM OUTPUT o inner JOIN SCALE_SPATIAL s on s.SCALE_SPATIAL_ID = o.SCALE_SPATIAL_ID inner JOIN TIME_LENGTH l on l.TIME_LENGTH_ID = o.TIME_LENGTH_ID inner JOIN SCALE_TIME stime on stime.SCALE_TIME_ID = o.SCALE_TIME_ID where OUTPUT_NAME = '{$output}' AND FIELD_ID = '{$field}' AND TIME_LENGTH_NAME = '{$length}'";
+      $unit;
+      $sql = "SELECT o.TABLE_ID as ot, s.TABLE_ID as st, PRESENTING_TYPE_ID, SCALE_TIME_NAME, SCALE_SPATIAL_NAME, UNIT FROM OUTPUT o inner JOIN SCALE_SPATIAL s on s.SCALE_SPATIAL_ID = o.SCALE_SPATIAL_ID inner JOIN TIME_LENGTH l on l.TIME_LENGTH_ID = o.TIME_LENGTH_ID inner JOIN SCALE_TIME stime on stime.SCALE_TIME_ID = o.SCALE_TIME_ID where OUTPUT_NAME = '{$output}' AND FIELD_ID = '{$field}' AND TIME_LENGTH_NAME = '{$length}'";
       $result = mysqli_query($_SESSION['link'] , $sql) or die("MySQL query error");
       if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
@@ -173,9 +174,10 @@
           $ptype = $row['PRESENTING_TYPE_ID'];
           $stime = $row['SCALE_TIME_NAME'];
           $sname = $row['SCALE_SPATIAL_NAME'];
+          $unit = $row['UNIT'];
         }
       }
-      echo $ptype . ',' . $stime . ',' . $sname . ',';
+      echo $ptype . ',' . $stime . ',' . $sname . ',' . $unit . ',';
       if ($table == 'Q90' || $table == 'q90') {
         $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME = '" . str_replace(date("Y") . '-', '', $date) . "' AND {$cname}_NAME = '{$where}'";
         if (mysqli_num_rows($result1) > 0) {
@@ -184,7 +186,7 @@
           }
         }
       } elseif (strpos($ptype,'A') !== false) {
-        $sql1 = "SELECT LABEL, DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_IDWHERE TIME_START = '{$date}'";
+        $sql1 = "SELECT LABEL, DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}'";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
@@ -235,5 +237,7 @@
           }
         }
       }
+
+      break;
   }
  ?>
