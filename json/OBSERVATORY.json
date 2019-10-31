@@ -1,0 +1,562 @@
+[
+  {
+    "ObservatoryName": "玉峰(馬利哥灣)",
+    "longitude": 121.297999,
+    "latitude": 24.54500796
+  },
+  {
+    "ObservatoryName": "稜角",
+    "longitude": 121.3836432,
+    "latitude": 24.5662914
+  },
+  {
+    "ObservatoryName": "秀巒",
+    "longitude": 121.2852618,
+    "latitude": 24.505361
+  },
+  {
+    "ObservatoryName": "三峽(2)",
+    "longitude": 121.3737179,
+    "latitude": 24.82229162
+  },
+  {
+    "ObservatoryName": "橫溪",
+    "longitude": 121.398695,
+    "latitude": 24.82087628
+  },
+  {
+    "ObservatoryName": "霞雲",
+    "longitude": 121.3621961,
+    "latitude": 24.65636322
+  },
+  {
+    "ObservatoryName": "五堵",
+    "longitude": 121.6892727,
+    "latitude": 24.96717314
+  },
+  {
+    "ObservatoryName": "秀朗",
+    "longitude": 121.5288701,
+    "latitude": 24.87752811
+  },
+  {
+    "ObservatoryName": "屈尺",
+    "longitude": 121.547051,
+    "latitude": 24.80357222
+  },
+  {
+    "ObservatoryName": "寶橋",
+    "longitude": 121.5529109,
+    "latitude": 24.86805485
+  },
+  {
+    "ObservatoryName": "覽勝橋",
+    "longitude": 121.5510248,
+    "latitude": 24.75070515
+  },
+  {
+    "ObservatoryName": "水源橋",
+    "longitude": 121.7000898,
+    "latitude": 24.82522855
+  },
+  {
+    "ObservatoryName": "大林橋",
+    "longitude": 121.7049774,
+    "latitude": 24.8214223
+  },
+  {
+    "ObservatoryName": "金瓜寮橋",
+    "longitude": 121.6888507,
+    "latitude": 24.81719312
+  },
+  {
+    "ObservatoryName": "思源橋",
+    "longitude": 121.768653,
+    "latitude": 24.85102776
+  },
+  {
+    "ObservatoryName": "瑞峰橋",
+    "longitude": 121.8098011,
+    "latitude": 24.99633535
+  },
+  {
+    "ObservatoryName": "坪林拱橋站",
+    "longitude": 121.7124798,
+    "latitude": 24.82488662
+  },
+  {
+    "ObservatoryName": "虎寮潭橋站",
+    "longitude": 121.7404129,
+    "latitude": 24.83870134
+  },
+  {
+    "ObservatoryName": "屈尺堰",
+    "longitude": 121.5472707,
+    "latitude": 24.80349763
+  },
+  {
+    "ObservatoryName": "介壽橋(1)",
+    "longitude": 121.8097439,
+    "latitude": 24.99624176
+  },
+  {
+    "ObservatoryName": "新埔(2)",
+    "longitude": 121.0656618,
+    "latitude": 24.71340394
+  },
+  {
+    "ObservatoryName": "內灣",
+    "longitude": 121.1811158,
+    "latitude": 24.59109873
+  },
+  {
+    "ObservatoryName": "上坪",
+    "longitude": 121.114253,
+    "latitude": 24.55731845
+  },
+  {
+    "ObservatoryName": "竹林大橋",
+    "longitude": 121.0935473,
+    "latitude": 24.63566718
+  },
+  {
+    "ObservatoryName": "經國橋",
+    "longitude": 121.0194663,
+    "latitude": 24.69564988
+  },
+  {
+    "ObservatoryName": "竹林大橋(左岸)",
+    "longitude": 121.0935473,
+    "latitude": 24.63566718
+  },
+  {
+    "ObservatoryName": "平安橋",
+    "longitude": 120.9492209,
+    "latitude": 24.56395825
+  },
+  {
+    "ObservatoryName": "永興橋",
+    "longitude": 121.0058201,
+    "latitude": 24.50607267
+  },
+  {
+    "ObservatoryName": "打鹿坑",
+    "longitude": 120.8619871,
+    "latitude": 24.35119114
+  },
+  {
+    "ObservatoryName": "北勢大橋左岸",
+    "longitude": 120.8255768,
+    "latitude": 24.48347603
+  },
+  {
+    "ObservatoryName": "恭敬橋",
+    "longitude": 120.8653367,
+    "latitude": 24.31765417
+  },
+  {
+    "ObservatoryName": "義里",
+    "longitude": 120.7379731,
+    "latitude": 24.23194389
+  },
+  {
+    "ObservatoryName": "雪山坑",
+    "longitude": 120.9343579,
+    "latitude": 24.2243231
+  },
+  {
+    "ObservatoryName": "象鼻(3)",
+    "longitude": 120.9469575,
+    "latitude": 24.24707109
+  },
+  {
+    "ObservatoryName": "景山",
+    "longitude": 120.858161,
+    "latitude": 24.23685683
+  },
+  {
+    "ObservatoryName": "馬鞍後池",
+    "longitude": 120.9389003,
+    "latitude": 24.06117389
+  },
+  {
+    "ObservatoryName": "天福大橋",
+    "longitude": 120.8604441,
+    "latitude": 24.05048165
+  },
+  {
+    "ObservatoryName": "龍安橋",
+    "longitude": 120.83603,
+    "latitude": 24.06162012
+  },
+  {
+    "ObservatoryName": "大肚橋",
+    "longitude": 120.5823616,
+    "latitude": 23.99668038
+  },
+  {
+    "ObservatoryName": "溪南橋",
+    "longitude": 120.643431,
+    "latitude": 23.9826613
+  },
+  {
+    "ObservatoryName": "烏溪橋",
+    "longitude": 120.6957343,
+    "latitude": 23.89968756
+  },
+  {
+    "ObservatoryName": "南北通橋",
+    "longitude": 120.9060406,
+    "latitude": 23.94854862
+  },
+  {
+    "ObservatoryName": "觀音橋",
+    "longitude": 120.9128601,
+    "latitude": 23.87420546
+  },
+  {
+    "ObservatoryName": "南崗大橋",
+    "longitude": 120.67458,
+    "latitude": 23.83319842
+  },
+  {
+    "ObservatoryName": "內茅埔",
+    "longitude": 120.8511027,
+    "latitude": 23.58653324
+  },
+  {
+    "ObservatoryName": "延平橋",
+    "longitude": 120.7090212,
+    "latitude": 23.67068791
+  },
+  {
+    "ObservatoryName": "彰雲橋",
+    "longitude": 120.6363948,
+    "latitude": 23.67929895
+  },
+  {
+    "ObservatoryName": "玉峰橋",
+    "longitude": 120.8407944,
+    "latitude": 23.69823277
+  },
+  {
+    "ObservatoryName": "水里",
+    "longitude": 120.854723,
+    "latitude": 23.7066823
+  },
+  {
+    "ObservatoryName": "溪州大橋",
+    "longitude": 120.4683296,
+    "latitude": 23.70035411
+  },
+  {
+    "ObservatoryName": "寶石橋",
+    "longitude": 120.9140828,
+    "latitude": 23.68549145
+  },
+  {
+    "ObservatoryName": "龍門橋",
+    "longitude": 120.6647612,
+    "latitude": 23.56545163
+  },
+  {
+    "ObservatoryName": "南雲大橋",
+    "longitude": 120.6572044,
+    "latitude": 23.65095117
+  },
+  {
+    "ObservatoryName": "北港(2)",
+    "longitude": 120.3014263,
+    "latitude": 23.45638912
+  },
+  {
+    "ObservatoryName": "溪口",
+    "longitude": 120.3994624,
+    "latitude": 23.50176858
+  },
+  {
+    "ObservatoryName": "土庫大橋",
+    "longitude": 120.4189919,
+    "latitude": 23.57410658
+  },
+  {
+    "ObservatoryName": "灣內橋",
+    "longitude": 120.3035663,
+    "latitude": 23.3917088
+  },
+  {
+    "ObservatoryName": "華興橋",
+    "longitude": 120.4344038,
+    "latitude": 23.40294859
+  },
+  {
+    "ObservatoryName": "牛稠溪橋(1)",
+    "longitude": 120.4434838,
+    "latitude": 23.40677338
+  },
+  {
+    "ObservatoryName": "觸口",
+    "longitude": 120.606471,
+    "latitude": 23.33152949
+  },
+  {
+    "ObservatoryName": "軍輝橋",
+    "longitude": 120.4583346,
+    "latitude": 23.35191895
+  },
+  {
+    "ObservatoryName": "常盤橋",
+    "longitude": 120.450156,
+    "latitude": 23.32242219
+  },
+  {
+    "ObservatoryName": "義竹(厚生橋)(1)",
+    "longitude": 120.2530595,
+    "latitude": 23.22311035
+  },
+  {
+    "ObservatoryName": "新營",
+    "longitude": 120.3132305,
+    "latitude": 23.19037018
+  },
+  {
+    "ObservatoryName": "玉田",
+    "longitude": 120.4585133,
+    "latitude": 23.01239215
+  },
+  {
+    "ObservatoryName": "左鎮",
+    "longitude": 120.3809917,
+    "latitude": 22.96184779
+  },
+  {
+    "ObservatoryName": "二溪大橋",
+    "longitude": 120.3845655,
+    "latitude": 23.01046112
+  },
+  {
+    "ObservatoryName": "玉豐大橋",
+    "longitude": 120.452853,
+    "latitude": 23.01738365
+  },
+  {
+    "ObservatoryName": "新中(1)",
+    "longitude": 120.3379101,
+    "latitude": 23.05055115
+  },
+  {
+    "ObservatoryName": "新市",
+    "longitude": 120.2771238,
+    "latitude": 22.95380264
+  },
+  {
+    "ObservatoryName": "南雄橋(阿蓮(2))",
+    "longitude": 120.3387838,
+    "latitude": 22.78534439
+  },
+  {
+    "ObservatoryName": "崇德橋",
+    "longitude": 120.3623421,
+    "latitude": 22.77146308
+  },
+  {
+    "ObservatoryName": "三地門",
+    "longitude": 120.647769,
+    "latitude": 22.60766429
+  },
+  {
+    "ObservatoryName": "里嶺大橋",
+    "longitude": 120.4536353,
+    "latitude": 22.66639552
+  },
+  {
+    "ObservatoryName": "杉林大橋(2)",
+    "longitude": 120.551007,
+    "latitude": 22.88502065
+  },
+  {
+    "ObservatoryName": "東溪大橋",
+    "longitude": 120.6542343,
+    "latitude": 22.90137135
+  },
+  {
+    "ObservatoryName": "獅額頭橋",
+    "longitude": 120.6619501,
+    "latitude": 22.91587678
+  },
+  {
+    "ObservatoryName": "大津橋(1)",
+    "longitude": 120.6482955,
+    "latitude": 22.77501612
+  },
+  {
+    "ObservatoryName": "六龜(1)",
+    "longitude": 120.6383058,
+    "latitude": 22.88995061
+  },
+  {
+    "ObservatoryName": "潮州",
+    "longitude": 120.5439282,
+    "latitude": 22.46478388
+  },
+  {
+    "ObservatoryName": "興社大橋",
+    "longitude": 120.5047502,
+    "latitude": 22.43842805
+  },
+  {
+    "ObservatoryName": "新埤",
+    "longitude": 120.5503285,
+    "latitude": 22.35863366
+  },
+  {
+    "ObservatoryName": "石門橋",
+    "longitude": 120.7779582,
+    "latitude": 22.02482172
+  },
+  {
+    "ObservatoryName": "知本(3)",
+    "longitude": 121.0219089,
+    "latitude": 22.58978677
+  },
+  {
+    "ObservatoryName": "利嘉(2)",
+    "longitude": 121.0493704,
+    "latitude": 22.65695978
+  },
+  {
+    "ObservatoryName": "延平",
+    "longitude": 121.0845492,
+    "latitude": 22.79280852
+  },
+  {
+    "ObservatoryName": "台東大橋",
+    "longitude": 121.1458726,
+    "latitude": 22.68706402
+  },
+  {
+    "ObservatoryName": "新武呂(4)",
+    "longitude": 121.17156,
+    "latitude": 23.02117884
+  },
+  {
+    "ObservatoryName": "瑞源",
+    "longitude": 121.1646242,
+    "latitude": 22.86915451
+  },
+  {
+    "ObservatoryName": "卓樂橋(卓麓(1))",
+    "longitude": 121.2639172,
+    "latitude": 23.1926165
+  },
+  {
+    "ObservatoryName": "立山",
+    "longitude": 121.3109721,
+    "latitude": 23.32024075
+  },
+  {
+    "ObservatoryName": "瑞穗大橋",
+    "longitude": 121.404544,
+    "latitude": 23.37783091
+  },
+  {
+    "ObservatoryName": "玉里大橋",
+    "longitude": 121.328373,
+    "latitude": 23.21610262
+  },
+  {
+    "ObservatoryName": "馬遠橋",
+    "longitude": 121.3665609,
+    "latitude": 23.46417008
+  },
+  {
+    "ObservatoryName": "崙天大橋",
+    "longitude": 121.2700472,
+    "latitude": 23.11159511
+  },
+  {
+    "ObservatoryName": "平林",
+    "longitude": 121.4519946,
+    "latitude": 23.70412131
+  },
+  {
+    "ObservatoryName": "仁壽橋",
+    "longitude": 121.504552,
+    "latitude": 23.84776278
+  },
+  {
+    "ObservatoryName": "花蓮大橋",
+    "longitude": 121.5993752,
+    "latitude": 23.81468526
+  },
+  {
+    "ObservatoryName": "馬鞍溪橋",
+    "longitude": 121.4092699,
+    "latitude": 23.57964653
+  },
+  {
+    "ObservatoryName": "萬里溪橋",
+    "longitude": 121.4268042,
+    "latitude": 23.61245473
+  },
+  {
+    "ObservatoryName": "箭瑛大橋",
+    "longitude": 121.486023,
+    "latitude": 23.62427896
+  },
+  {
+    "ObservatoryName": "希能埔",
+    "longitude": 121.7431074,
+    "latitude": 24.21576182
+  },
+  {
+    "ObservatoryName": "澳尾橋",
+    "longitude": 121.7795587,
+    "latitude": 24.3402635
+  },
+  {
+    "ObservatoryName": "南澳橋",
+    "longitude": 121.7882839,
+    "latitude": 24.35125062
+  },
+  {
+    "ObservatoryName": "南澳圳",
+    "longitude": 121.7882839,
+    "latitude": 24.35125062
+  },
+  {
+    "ObservatoryName": "牛鬥(1)",
+    "longitude": 121.5650002,
+    "latitude": 24.530245
+  },
+  {
+    "ObservatoryName": "蘭陽大橋",
+    "longitude": 121.7715871,
+    "latitude": 24.60612957
+  },
+  {
+    "ObservatoryName": "家源橋",
+    "longitude": 121.4916466,
+    "latitude": 24.46762482
+  },
+  {
+    "ObservatoryName": "西門橋",
+    "longitude": 121.7440964,
+    "latitude": 24.64772887
+  },
+  {
+    "ObservatoryName": "清水大橋",
+    "longitude": 121.6131826,
+    "latitude": 24.52671202
+  },
+  {
+    "ObservatoryName": "北成橋",
+    "longitude": 121.7449473,
+    "latitude": 24.57403375
+  },
+  {
+    "ObservatoryName": "牛鬥(3)",
+    "longitude": 121.5670775,
+    "latitude": 24.53177173
+  }
+]
