@@ -6,6 +6,7 @@
           <script src="/js/map.js"></script>
           <script>
             normalMap();
+            normalMap_point();
           </script>
         </div>
       </div>
@@ -64,12 +65,6 @@
             </div> -->
             <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
             <script src="./js/chart_new.js"></script>
-            <script>
-              lightChart()
-              pieChart()
-              lineChart()
-              barChart()
-            </script>
           </div>
         </div>
       </div>
@@ -108,16 +103,89 @@
       }, function(data){
         console.log(data);
 
-        // // 呈現控制
-        // var splitdata = data.split(',');
-        // for (var i = 0; i < splitdata[0].split(';').length; i++) {
-        //   switch (splitdata[0].split(';')[i]) {
-        //     case 'A':
-        //       raster
-        //       break;
-        //
-        //   }
-        // }
+        // 呈現控制
+        var splitdata = data.split(',');
+        for (var i = 0; i < splitdata[0].split(';').length; i++) {
+          switch (splitdata[0].split(';')[i]) {
+            case 'A':  //pie
+              pieChart()
+              break;
+            case 'B': //bar
+              let StartDate = $("#sel4").val();
+              let week_date = [];
+              for(i=0;i<length.;i++){
+                const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
+                week_date.push(firstday.addDays(7*i).toString());
+              }
+              barChart({
+                Type: "B",
+                WaterStorage: {
+                  yAxisID: "萬噸"  
+                  labels: week_date,
+                  datasets: [
+                    {
+                    label: $("#sel3").text(),
+                    backgroundColor: 'green',
+                    borderColor: 'white',
+                    data: splitdata.substring( a.indexOf("[")+1, a.indexOf("]") ).split(",").map((item) => parseFloat(item))
+                    },
+                  ]
+                },
+                StartDate,
+                Location: $("#sel3").text(),
+                TimeScale: splitdata[2],
+              })
+              break;
+            case 'C':
+              // bar by unit
+              break;
+            case 'D':  //line
+              let StartDate = $("#sel4").val();
+              let week_date = [];
+              for(i=0;i<length.;i++){
+                const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
+                week_date.push(firstday.addDays(7*i).toString());
+              }
+              lineChart({
+                Type: "D",
+                WaterStorage: {
+                  yAxisID: "萬噸"  
+                  labels: week_date,
+                  datasets: [
+                    {
+                    label: $("#sel3").text(),
+                    backgroundColor: 'green',
+                    borderColor: 'white',
+                    data: splitdata.substring( a.indexOf("[")+1, a.indexOf("]") ).split(",").map((item) => parseFloat(item))
+                    },
+                  ]
+                },
+                StartDate,
+                Location: $("#sel3").text(),
+                TimeScale: splitdata[2],
+              })
+              break;
+            case 'E':
+              // line by unit
+              break;
+            case 'F':  
+              //normal map
+              break;
+            case 'G':  
+              //raster map
+              break;
+            case 'H':
+              // table
+              break;
+            case 'I':  //light
+              lightChart({
+                Type: "I",
+                Light: splitdata[4],
+                Timescale: splitdata[2]
+              })
+              break;
+          }
+        }
 
 
         $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text())
