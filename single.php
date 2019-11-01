@@ -52,7 +52,7 @@
             <button type="button" name="button" class="btn btn-primary search" id="singlesearchbar">查詢bar</button>
           </div>
         </div>
-        <div class="card mt-3 flex-fill">
+        <div class="card mt-3 flex-fill" >
           <h6 class="card-title resulttitle"></h6>
           <div class="container d-flex flex-fill align-items-center flex-wrap" id="present">
             <!-- <div id="lightChartContainer" class="container">
@@ -63,9 +63,9 @@
             <div id="pieChartContainer" class="container">
               <canvas id="myLineChart"></canvas>
             </div> -->
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-            <script src="./js/chart_new.js"></script>
           </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+          <script src="./js/chart_new.js"></script>
         </div>
       </div>
     </div>
@@ -102,11 +102,12 @@
         date: $("#sel4").val()
       }, function(data){
         console.log(data);
-
         // 呈現控制
         var splitdata = data.split(',');
         let StartDate = $("#sel4").val();
         let week_date = [];
+        let week_date_short= [];
+        let inputData = [];
         for (var i = 0; i < splitdata[0].split(';').length; i++) {
           switch (splitdata[0].split(';')[i]) {
             case 'A':  //pie
@@ -115,13 +116,17 @@
             case 'B': //bar
               for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
                 const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
-                week_date.push(firstday.addDays(7*i).toString());
+                if(splitdata[1] === "週") {
+                } else {
+                  week_date.push(firstday.addDays(i).toString());
+                }
               }
+              week_date_short = week_date.map((item) => item.substring(4,7).concat(item.substring(8,10)));
               barChart({
                 Type: "B",
                 WaterStorage: {
                   yAxisID: "萬噸",
-                  labels: week_date,
+                  labels: week_date_short,
                   datasets: [
                     {
                     label: $("#sel3 :selected").text(),
@@ -131,6 +136,21 @@
                     },
                   ]
                 },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  scales: {
+                    yAxes: [{
+                      scaleLabel: {
+                        display: true,
+                        labelString: splitdata[3],
+                      }
+                    }]
+                  }
+                },
+                StartDate,
+                Location: $("#sel3 :selected").text(),
+                TimeScale: splitdata[2],
                 StartDate,
                 Location: $("#sel3 :selected").text(),
                 TimeScale: splitdata[2],
@@ -142,21 +162,35 @@
             case 'D':  //line
               for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
                 const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
-                week_date.push(firstday.addDays(7*i).toString());
-              }
+                if(splitdata[1] === "週") {
+                } else {
+                  week_date.push(firstday.addDays(i).toString());
+                }              }
+              week_date_short = week_date.map((item) => item.substring(4,7).concat(item.substring(8,10)));
               lineChart({
                 Type: "D",
                 WaterStorage: {
-                  yAxisID: "萬噸",
-                  labels: week_date,
+                  labels: week_date_short,
                   datasets: [
                     {
                     label: $("#sel3 :selected").text(),
-                    backgroundColor: 'green',
+                    fill: false,
                     borderColor: 'white',
                     data: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item))
                     },
                   ],
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  scales: {
+                    yAxes: [{
+                      scaleLabel: {
+                        display: true,
+                        labelString: splitdata[3],
+                      }
+                    }]
+                  }
                 },
                 StartDate,
                 Location: $("#sel3 :selected").text(),

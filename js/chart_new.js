@@ -3,8 +3,12 @@ Date.prototype.addDays = function(days) {
   return this;
 }
 
+function cleanCanvas() {
+  document.getElementById("present").innerHTML = "";
+}
 
 function lightChart(light_data) {
+  cleanCanvas();
   // var light_data = {
   //   Type: "I",
   //   Light: ["RED", "RED", "RED", "ORANGE", "ORANGE", "ORANGE", "GREEN", "GREEN", "BLUE", "BLUE", "GREEN", "ORANGE"],  //共12個顏色可以選擇"RED","ORANGE","GREEN","BLUE"（由差到好）
@@ -91,6 +95,8 @@ function lightChart(light_data) {
 }
 
 function pieChart() {
+  cleanCanvas();
+
   var pie_data = {
     Type: "A",
     Valve:{
@@ -130,6 +136,7 @@ function pieChart() {
 
 
 function lineChart(line_data) {
+  cleanCanvas();
 
   // var line_data = {
   //   Type: "D",
@@ -161,11 +168,13 @@ function lineChart(line_data) {
   var myLineChart = new Chart(ctx, {
     type: 'line',
     data: line_data.WaterStorage,
+    options: line_data.options,
   });
 }
 
 
 function barChart(bar_data) {
+  cleanCanvas();
 
 // var line_data = {
   //   Type: "D",
@@ -197,5 +206,6 @@ function barChart(bar_data) {
   var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: bar_data.WaterStorage,
+    options: bar_data.options,
   });
 }
