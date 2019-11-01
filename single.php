@@ -229,6 +229,7 @@
       length: $("#sel2 option:selected").text(),
       where: $("#sel3 option:selected").text()
     }, function(data){
+      console.log(data);
       var splitsel = data.split(";");
       $("#sel4").datepicker("setStartDate", splitsel[0].split(',')[0]);
       $("#sel4").datepicker("setEndDate", splitsel[0].split(',')[1]);

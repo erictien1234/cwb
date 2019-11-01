@@ -90,6 +90,8 @@
             }
           }
           echo ';';
+        } elseif ($spatial[$i] == '台灣本島') {
+          echo '台灣本島' . ',;';
         } else {
           $sql1 = "SELECT DISTINCT $cname[$i]_NAME FROM $table[$i] t inner JOIN $cname[$i] c on t.$cname[$i]_ID = c.$cname[$i]_ID";
           $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
@@ -132,7 +134,11 @@
         }
         echo date("Y") . '-' . $date[0] . ',' . date("Y") . '-' . end($date) . ';';
       } else {
-        $sql1 = "SELECT DISTINCT TIME_START FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
+        if ($table == 'RAINFALL_LM' || $table == 'rainfall_lm') {
+          $sql1 = "SELECT DISTINCT TIME_START FROM $table t where TIME_START != '0000-00-00'";
+        } else {
+          $sql1 = "SELECT DISTINCT TIME_START FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
+        }
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
@@ -195,11 +201,11 @@
           }
         }
       } elseif ($cname == 'taiwangrid' || $cname == 'TAIWANGRID') {
-        $sql1 = "SELECT DATA, TAIWANGRID_X, TAIWANGRID_Y FROM {$table} t WHERE TIME = '{$date}'";
+        $sql1 = "SELECT DATA, TAIWANGRID_X, TAIWANGRID_Y FROM {$table} t WHERE TIME_START = '{$date}'";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
-            echo '[' . $row1['TAIWANGRID_X'] . ',' . $row1['TAIWANGRID_Y'] . ',[' . $row1['DATA'] . ']]';
+            echo '[' . $row1['TAIWANGRID_X'] . ',' . $row1['TAIWANGRID_Y'] . ',' . $row1['DATA'] . ']';
           }
         }
       } elseif ($table == 'seasonal_outlook_flow' || $table == 'SEASONAL_OUTLOOK_FLOW') {
@@ -222,6 +228,7 @@
         for ($i=0; $i < count($outputarray)-1; $i++) {
           sort($outputarray[$i]);
         }
+        echo '[';
         for ($i=0; $i < 5; $i++) {
           echo '[';
           for ($j=0; $j < count($outputarray)-1; $j++) {
@@ -229,13 +236,16 @@
           }
           echo ']';
         }
+        echo ']';
       } else {
         $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
+          echo '[';
           while($row1 = mysqli_fetch_assoc($result1)) {
             echo $row1['DATA'];
           }
+          echo ']';
         }
       }
 
