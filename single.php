@@ -105,34 +105,34 @@
 
         // 呈現控制
         var splitdata = data.split(',');
+        let StartDate = $("#sel4").val();
+        let week_date = [];
         for (var i = 0; i < splitdata[0].split(';').length; i++) {
           switch (splitdata[0].split(';')[i]) {
             case 'A':  //pie
               pieChart()
               break;
             case 'B': //bar
-              let StartDate = $("#sel4").val();
-              let week_date = [];
-              for(i=0;i<length.;i++){
+              for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
                 const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
                 week_date.push(firstday.addDays(7*i).toString());
               }
               barChart({
                 Type: "B",
                 WaterStorage: {
-                  yAxisID: "萬噸"  
+                  yAxisID: "萬噸",
                   labels: week_date,
                   datasets: [
                     {
-                    label: $("#sel3").text(),
+                    label: $("#sel3 :selected").text(),
                     backgroundColor: 'green',
                     borderColor: 'white',
-                    data: splitdata.substring( a.indexOf("[")+1, a.indexOf("]") ).split(",").map((item) => parseFloat(item))
+                    data: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item))
                     },
                   ]
                 },
                 StartDate,
-                Location: $("#sel3").text(),
+                Location: $("#sel3 :selected").text(),
                 TimeScale: splitdata[2],
               })
               break;
@@ -140,38 +140,36 @@
               // bar by unit
               break;
             case 'D':  //line
-              let StartDate = $("#sel4").val();
-              let week_date = [];
-              for(i=0;i<length.;i++){
+              for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
                 const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
                 week_date.push(firstday.addDays(7*i).toString());
               }
               lineChart({
                 Type: "D",
                 WaterStorage: {
-                  yAxisID: "萬噸"  
+                  yAxisID: "萬噸",
                   labels: week_date,
                   datasets: [
                     {
-                    label: $("#sel3").text(),
+                    label: $("#sel3 :selected").text(),
                     backgroundColor: 'green',
                     borderColor: 'white',
-                    data: splitdata.substring( a.indexOf("[")+1, a.indexOf("]") ).split(",").map((item) => parseFloat(item))
+                    data: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item))
                     },
-                  ]
+                  ],
                 },
                 StartDate,
-                Location: $("#sel3").text(),
+                Location: $("#sel3 :selected").text(),
                 TimeScale: splitdata[2],
               })
               break;
             case 'E':
               // line by unit
               break;
-            case 'F':  
+            case 'F':
               //normal map
               break;
-            case 'G':  
+            case 'G':
               //raster map
               break;
             case 'H':
@@ -180,7 +178,7 @@
             case 'I':  //light
               lightChart({
                 Type: "I",
-                Light: splitdata[4],
+                Light: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(","),
                 Timescale: splitdata[2]
               })
               break;

@@ -180,9 +180,10 @@
       echo $ptype . ',' . $stime . ',' . $sname . ',' . $unit . ',';
       if ($table == 'Q90' || $table == 'q90') {
         $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME = '" . str_replace(date("Y") . '-', '', $date) . "' AND {$cname}_NAME = '{$where}'";
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
-            echo $row1['DATA'];
+            echo '[' . $row1['DATA'] . ']';
           }
         }
       } elseif (strpos($ptype,'A') !== false) {
