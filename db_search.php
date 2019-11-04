@@ -193,7 +193,7 @@
           }
         }
       } elseif (strpos($ptype,'A') !== false) {
-        $sql1 = "SELECT LABEL, DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}'";
+        $sql1 = "SELECT LABEL, DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
@@ -205,11 +205,16 @@
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
-            echo '[' . $row1['TAIWANGRID_X'] . ',' . $row1['TAIWANGRID_Y'] . ',' . $row1['DATA'] . ']';
+            $a = substr($row1['DATA'],1,-1);
+            $a = explode(',',$a);
+            foreach($a as $value){
+              $value = floatval($value);
+            }
+            echo '[' . $row1['TAIWANGRID_X'] . ',' . $row1['TAIWANGRID_Y'] . ',' . array_sum($a)/count($a) . ']';
           }
         }
       } elseif ($table == 'seasonal_outlook_flow' || $table == 'SEASONAL_OUTLOOK_FLOW') {
-        echo ':';
+        // echo ':';
         $outputarray=[];
         $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");

@@ -65,6 +65,10 @@
           </div>
         </div>
         <div class="card col-6 col-md-8">
+          <div class="container d-flex flex-fill flex-wrap" id="present">
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+          <script src="./js/chart_new.js"></script>
           <div class="mt-auto ml-auto pr-3 py-3">
             <button type="button" name="button" class="btn btn-warning clear2">清空</button>
           </div>
@@ -78,7 +82,7 @@
     $("button.clear1").on("click",function(){
       $("#sel1").empty();
       $("#sel2").empty();
-      // $("#sel3").empty();
+      $("#sel3").empty();
       $("#sel4").val("");
     })
     $("button.fieldsel").on("click",function(){
@@ -152,7 +156,6 @@
     })
     $("button.search").on("click",function(){
       if ($("#sel1").find('option:selected').val() && $("#sel2").find('option:selected').val() && $("#sel3").find('option:selected').val() && $("#sel4").val()) {
-        $("h6.result").show();
         $("label.falseresult").hide();
         $.post('db_search.php',{
           type: 'data',
@@ -163,6 +166,124 @@
           date: $("#sel4").val()
         }, function(data){
           console.log(data);
+          $("div#present").append("<h6 class='card-title resulttitle'></h6>");
+          // 呈現控制
+          var splitdata = data.split(',');
+          let StartDate = $("#sel4").val();
+          let week_date = [];
+          let week_date_short= [];
+          let inputData = [];
+          for (var i = 0; i < splitdata[0].split(';').length; i++) {
+            switch (splitdata[0].split(';')[i]) {
+              case 'A':  //pie
+                pieChart()
+                break;
+              case 'B': //bar
+                for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
+                  const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
+                  if(splitdata[1] === "週") {
+                  } else {
+                    week_date.push(firstday.addDays(i).toString());
+                  }
+                }
+                week_date_short = week_date.map((item) => item.substring(4,7).concat(item.substring(8,10)));
+                barChart({
+                  Type: "B",
+                  WaterStorage: {
+                    yAxisID: "萬噸",
+                    labels: week_date_short,
+                    datasets: [
+                      {
+                      label: $("#sel3 :selected").text(),
+                      backgroundColor: 'green',
+                      borderColor: 'white',
+                      data: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item))
+                      },
+                    ]
+                  },
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: splitdata[3],
+                        }
+                      }]
+                    }
+                  },
+                  StartDate,
+                  Location: $("#sel3 :selected").text(),
+                  TimeScale: splitdata[2],
+                  StartDate,
+                  Location: $("#sel3 :selected").text(),
+                  TimeScale: splitdata[2],
+                })
+                break;
+              case 'C':
+                // bar by unit
+                break;
+              case 'D':  //line
+                for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
+                  const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
+                  if(splitdata[1] === "週") {
+                  } else {
+                    week_date.push(firstday.addDays(i).toString());
+                  }              }
+                week_date_short = week_date.map((item) => item.substring(4,7).concat(item.substring(8,10)));
+                lineChart({
+                  Type: "D",
+                  WaterStorage: {
+                    labels: week_date_short,
+                    datasets: [
+                      {
+                      label: $("#sel3 :selected").text(),
+                      fill: false,
+                      borderColor: 'white',
+                      data: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item))
+                      },
+                    ],
+                  },
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: splitdata[3],
+                        }
+                      }]
+                    }
+                  },
+                  StartDate,
+                  Location: $("#sel3 :selected").text(),
+                  TimeScale: splitdata[2],
+                })
+                break;
+              case 'E':
+                // line by unit
+                break;
+              case 'F':
+                //normal map
+                break;
+              case 'G':
+                //raster map
+                break;
+              case 'H':
+                // table
+                break;
+              case 'I':  //light
+                lightChart({
+                  Type: "I",
+                  Light: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(","),
+                  Timescale: splitdata[2]
+                })
+                break;
+            }
+          }
+          $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text());
         })
       }
       else {

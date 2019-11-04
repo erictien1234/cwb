@@ -91,7 +91,6 @@
   })
   $("button.search").on("click",function(){
     if ($("#sel1").find('option:selected').val() && $("#sel2").find('option:selected').val() && $("#sel3").find('option:selected').val() && $("#sel4").val()) {
-      $("h6.result").show();
       $("label.falseresult").hide();
       $.post('db_search.php',{
         type: 'data',
@@ -102,6 +101,7 @@
         date: $("#sel4").val()
       }, function(data){
         console.log(data);
+        $("div#present").append("<h6 class='card-title resulttitle'></h6>");
         // 呈現控制
         var splitdata = data.split(',');
         let StartDate = $("#sel4").val();
@@ -218,9 +218,7 @@
               break;
           }
         }
-
-
-        $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text())
+        $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text());
       })
     }
     else {
