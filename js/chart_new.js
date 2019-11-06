@@ -8,7 +8,6 @@ function cleanCanvas() {
 }
 
 function lightChart(light_data) {
-  cleanCanvas();
   // var light_data = {
   //   Type: "I",
   //   Light: ["RED", "RED", "RED", "ORANGE", "ORANGE", "ORANGE", "GREEN", "GREEN", "BLUE", "BLUE", "GREEN", "ORANGE"],  //共12個顏色可以選擇"RED","ORANGE","GREEN","BLUE"（由差到好）
@@ -95,8 +94,6 @@ function lightChart(light_data) {
 }
 
 function pieChart() {
-  cleanCanvas();
-
   var pie_data = {
     Type: "A",
     Valve:{
@@ -136,12 +133,9 @@ function pieChart() {
 
 
 function lineChart(line_data) {
-  cleanCanvas();
-
   // var line_data = {
   //   Type: "D",
   //   WaterStorage: {
-  //     yAxisID: "萬噸"
   //     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   //     datasets: [
   //       {
@@ -156,7 +150,7 @@ function lineChart(line_data) {
   //   Location: "新竹縣",
   //   TimeScale:"週",
   // }
-
+  console.log(line_data);
   lineChartContainer = document.createElement("div");
   lineChartContainer.setAttribute("id", "lineChartContainer");
   lineChartContainer.setAttribute("class", "container");
@@ -174,8 +168,6 @@ function lineChart(line_data) {
 
 
 function barChart(bar_data) {
-  cleanCanvas();
-
 // var line_data = {
   //   Type: "D",
   //   WaterStorage: {

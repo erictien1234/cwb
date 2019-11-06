@@ -1,7 +1,7 @@
 path {
   fill: white;
   stroke: black;
-  border: 0.5 px;
+  border: 1 px;
   /* display: block;
   margin: 0 auto;
     a{
@@ -28,4 +28,9 @@ path.focus{
 
 path:hover {
  fill: red;
+}
+
+path.map_point {
+  fill: none;
+  stroke: none;
 }
