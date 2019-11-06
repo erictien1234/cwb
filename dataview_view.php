@@ -38,6 +38,7 @@
             alert("目前INPUT不提供下載與API服務");
           } else {
             $("#sel3").empty();
+            $("#sel3").append("<option style='display:none'>請選擇</option>")
             $.post('back_db_search.php',{
               type: 'downloadsearch',
               TABLE: $("button.download").val(),
@@ -77,7 +78,13 @@
             where: $("#sel3 option:selected").text(),
             date: $("#sel4").val()
           }, function(data){
-            alert($("button.download").val()+','+$("#sel3 option:selected").text()+','+$("#sel4").val());
+            if (data == 'MySQL query error') {
+              alert('發生錯誤，請聯繫系統管理員。');
+            }
+            else{
+              alert('前往下載頁面。');
+              window.open(data);
+            }
           });
         });
         $("button#savechange").click(function(){

@@ -9,5 +9,19 @@
 //   die( header( 'location: /error.php' ) );
 // }
 
+  require_once 'db.php';
+  $table = $_POST['TABLE'];
+  $where = $_POST['where'];
+  $date = $_POST['date'];
+  $cname;
 
+  $sql = "SELECT s.TABLE_ID as st FROM SCALE_SPATIAL s inner JOIN OUTPUT o on s.SCALE_SPATIAL_ID = o.SCALE_SPATIAL_ID where o.TABLE_ID = '{$table}'";
+  $result = mysqli_query($_SESSION['link'] , $sql) or die("MySQL query error");
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      $cname = $row['st'];
+    }
+  }
+  $url = "http://cwbservice.zapto.org/download/?table={$table}&{$cname}={$where}&time={$date}";
+  echo $url;
 ?>

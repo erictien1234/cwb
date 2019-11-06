@@ -16,14 +16,14 @@
                 <label for="inputEmail">電子信箱Email address</label>
                 <input id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
               </div>
-              <div class="form-label-group mt-4">
+              <div class="form-label-group my-4">
                 <label for="inputPassword">密碼Password</label>
                 <input id="inputPassword" class="form-control" placeholder="Password" type="password" required>
               </div>
-              <div class="custom-control custom-checkbox mb-3">
+              <!-- <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="rmuser">
                 <label class="custom-control-label" for="rmuser">Remember Email</label>
-              </div>
+              </div> -->
               <button class="btn btn-lg btn-primary btn-block login">登入</button>
             </form>
           </div>
