@@ -9,7 +9,7 @@
   //   die( header( 'location: /error.php' ) );
   // }
   require_once "db.php";
-  // $_POST['type'] = 'spatial';
+  // $_POST['type'] = 'date';
   // $_POST['field'] = 'WR';
   // $_POST['output'] = 'Q90水庫模擬入流量';
   // $_POST['length'] = '未來三個月';
@@ -125,7 +125,7 @@
         }
       }
       if ($table == 'Q90' || $table == 'q90') {
-        $sql1 = "SELECT TIME FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
+        $sql1 = "SELECT DISTINCT TIME FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
@@ -133,12 +133,26 @@
           }
         }
         echo date("Y") . '-' . $date[0] . ',' . date("Y") . '-' . end($date) . ';';
-      } else {
-        if ($table == 'RAINFALL_LM' || $table == 'rainfall_lm') {
-          $sql1 = "SELECT DISTINCT TIME_START FROM $table t where TIME_START != '0000-00-00'";
-        } else {
-          $sql1 = "SELECT DISTINCT TIME_START FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
+      } else if ($cname == 'TAIWANGRID' || $cname == 'taiwangrid'){
+        $sql1 = "SELECT DISTINCT TIME FROM $table t where TIME != '0000-00-00'";
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            array_push($date, $row1['TIME']);
+          }
         }
+        echo $date[0] . ',' . end($date) . ';';
+        $d = new DateTime($date[0]);
+        while ($d != new DateTime(end($date))) {
+          date_add($d, date_interval_create_from_date_string('1 day'));
+          if ($d != new DateTime($date[$dcount])) {
+            echo date_format($d,'Y-m-d') . ',';
+          } else {
+            $dcount++;
+          }
+        }
+      } else {
+        $sql1 = "SELECT DISTINCT TIME_START FROM $table t inner JOIN $cname c on c.{$cname}_ID = t.{$cname}_ID";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
@@ -156,7 +170,6 @@
           }
         }
       }
-
       break;
 
     case 'data':
@@ -189,7 +202,7 @@
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
-            echo '[' . $row1['DATA'] . ']';
+            echo '['.'[' . $row1['DATA'] . ']'.']';
           }
         }
       } elseif (strpos($ptype,'A') !== false) {
@@ -201,7 +214,7 @@
           }
         }
       } elseif ($cname == 'taiwangrid' || $cname == 'TAIWANGRID') {
-        $sql1 = "SELECT DATA, TAIWANGRID_X, TAIWANGRID_Y FROM {$table} t WHERE TIME_START = '{$date}'";
+        $sql1 = "SELECT DATA, TAIWANGRID_X, TAIWANGRID_Y FROM {$table} t WHERE TIME = '{$date}'";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {
           while($row1 = mysqli_fetch_assoc($result1)) {
