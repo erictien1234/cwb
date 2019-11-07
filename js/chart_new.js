@@ -93,30 +93,28 @@ function lightChart(light_data) {
   // $("path#" + hsc).addClass("focus");
 }
 
-function pieChart() {
-  var pie_data = {
-    Type: "A",
-    Valve:{
-      datasets: [{
-        data: [10, 20, 30],
-        backgroundColor: [
-        'Red',
-        'Yellow',
-        'Blue'
-        ]
-      }],
-      // These labels appear in the legend and in the tooltips when hovering different arcs
-      labels: [
-        'Red',
-        'Yellow',
-        'Blue'
-      ]
-    },
-    Location: "新竹縣",
-  }
+function pieChart(pie_data) {
+  // var pie_data = {
+  //   Type: "A",
+  //   Valve:{
+  //     datasets: [{
+  //       data: [10, 20, 30],
+  //       backgroundColor: [
+  //       'Red',
+  //       'Yellow',
+  //       'Blue'
+  //       ]
+  //     }],
+  //     // These labels appear in the legend and in the tooltips when hovering different arcs
+  //     labels: [
+  //       'Red',
+  //       'Yellow',
+  //       'Blue'
+  //     ]
+  //   },
+  // }
 
   StartDate = $("#sel4").val();
-
   pieChartContainer = document.createElement("div");
   pieChartContainer.setAttribute("id", "pieChartContainer");
   pieChartContainer.setAttribute("class", "container");

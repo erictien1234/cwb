@@ -116,12 +116,28 @@
         for (var i = 0; i < splitdata[0].split(';').length; i++) {
           switch (splitdata[0].split(';')[i]) {
             case 'A':  //pie
+              //  F;A,月,縣市,1.安全2.警戒預備3.嚴重警戒4.高溫警戒,[嚴重警戒=37][安全=0.1][寒冷危險=59.6][警界預備=3.3]
               cleanCanvas();
-              pieChart()
+              let pie_data = {
+                Type: "A",
+                Valve:{
+                  datasets: [{
+                    data: data.substring(data.indexOf("[")+1, data.length-1).split("][").map((item => parseFloat(item.substring(item.indexOf("=")+1, item.length)))),
+                    backgroundColor: [
+                      dynamicColors(),
+                      dynamicColors(),
+                      dynamicColors()
+                    ]
+                  }],
+                  // These labels appear in the legend and in the tooltips when hovering different arcs
+                  labels: data.substring(data.indexOf("[")+1, data.length-1).split("][").map((item => item.substring(0, item.indexOf("=")))),
+                },
+              };
+              pieChart(pie_data)
               break;
             case 'B': //bar
               cleanCanvas();
-              for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
+              for(i=0;i<data.substring( data.indexOf("[[")+2, data.indexOf("]")-1 ).split(",").map((item) => parseFloat(item)).length;i++){
                 const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
                 if(splitdata[1] === "週") {
                   week_date.push(firstday.addDays(7*i).toString());
@@ -140,7 +156,7 @@
                     label: $("#sel3 :selected").text(),
                     backgroundColor: 'green',
                     borderColor: 'white',
-                    data: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item))
+                    data: data.substring( data.indexOf("[[")+2, data.indexOf("]")-1 ).split(",").map((item) => parseFloat(item))
                     },
                   ]
                 },

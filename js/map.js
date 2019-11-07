@@ -35,7 +35,7 @@ function rasterMap(rasterData, max, min) {
   console.log(rasterData);
   const color = ['#ff0000', '#fa001f', '#f30033', '#ed0045', '#e50055', '#df0062', '#d80071', '#d0007f', '#c8008c', '#c00097', '#b600a5', '#ad00ae', '#a200bc', '#9600c7', '#8a00d1', '#7b00dc', '#6d00e4', '#5900ee', '#3d00f7', '#0000ff'];
   for(let i = 0; i<rasterData.length; i++){
-    let scale = Math.floor((rasterData[i].value-min)/((max-min)/color.length))
+    let scale = Math.min(Math.floor((rasterData[i].value-min)/((max-min)/color.length)), color.length-1);
     rasterData[i].color = color[scale];
   }
   let geoMultiPolygon;
@@ -43,8 +43,9 @@ function rasterMap(rasterData, max, min) {
       height = 400;
   let svg = d3.select("div#map").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
               .attr("viewBox", "0 0 " + width + " " + height)
-  var projection = d3.geoMercator().scale(6000).center([120.7,23.6]).translate([width/2,height/2]);
+  var projection = d3.geoMercator().scale(5500).center([121.2,23.6]).translate([width/2,height/2]);
   var path = d3.geoPath().projection(projection);
+
   fetch('/json/taiwangrid.json')
     .then(function(response) {
       return response.json();
@@ -85,6 +86,58 @@ function rasterMap(rasterData, max, min) {
           return "fill: "+d.properties.color
         })
     });
+
+  //Make legend
+  let Lposition = [230, 180]; //[x, y]
+  let Lsize = [10, 200]; //[x, y]
+  let defs = svg.append("defs");
+  let linearGradient = defs.append("linearGradient")
+    .attr("id", "linear-gradient")
+    .attr("x1", "0%")
+    .attr("y1", "100%")
+    .attr("x2", "0%")
+    .attr("y2", "0%");
+  linearGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", '#ff0000');
+    
+  linearGradient.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "#0000ff");
+  svg.append("rect")
+    .attr("width", Lsize[0])
+    .attr("height", Lsize[1])
+    // .attr("style", function(d){
+    //   return "margin-right: 10px"
+    // })
+    .attr("x", Lposition[0])
+    .attr("y", Lposition[1])
+    .style("fill", "url(#linear-gradient)");
+  
+  svg.selectAll("text")
+    .data([
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0, label: Math.round(min*100)/100 },
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.1, label: Math.round((min+(max-min)*0.1)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.2, label: Math.round((min+(max-min)*0.2)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.3, label: Math.round((min+(max-min)*0.3)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.4, label: Math.round((min+(max-min)*0.4)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.5, label: Math.round((min+(max-min)*0.5)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.6, label: Math.round((min+(max-min)*0.6)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.7, label: Math.round((min+(max-min)*0.7)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.8, label: Math.round((min+(max-min)*0.8)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0.9, label: Math.round((min+(max-min)*0.9)*100)/100},
+      {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*1, label: Math.round(max*100)/100}
+    ])
+    .enter().append("text")
+    .style("font-size", "12px")
+    .attr("x", function(d) { return d.x; })
+    .attr("y", function(d) { return d.y; })
+    .text(function(d) { return d.label; });
+  svg.append("text")
+    .style("font-size", "12px")
+    .text("日雨量/ mm")
+    .attr("x", 230)
+    .attr("y", 160)
 }
 
 function normalMap_point(spatialType) {
