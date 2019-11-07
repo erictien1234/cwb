@@ -9,7 +9,7 @@ function normalMap() {
   let svg = d3.select("div#map").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
               .attr("viewBox", "0 0 " + width + " " + height)
               .attr("id", "mapSvg")
-  var projection = d3.geoMercator().scale(4000).center([120.3,24]).translate([width/2,height/2]);
+  var projection = d3.geoMercator().scale(6000).center([120.7,23.6]).translate([width/2,height/2]);
   var path = d3.geoPath().projection(projection);
   fetch('/json/TaiwanCountySimplify.json') //TaiwanCountySimplify.json//
     .then(function(response) {
@@ -43,9 +43,9 @@ function rasterMap(rasterData, max, min) {
       height = 400;
   let svg = d3.select("div#map").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
               .attr("viewBox", "0 0 " + width + " " + height)
-  var projection = d3.geoMercator().scale(4400).center([121,23.6]).translate([width/2,height/2]);
+  var projection = d3.geoMercator().scale(6000).center([120.7,23.6]).translate([width/2,height/2]);
   var path = d3.geoPath().projection(projection);
-  fetch('/json/taiwangrid.json') 
+  fetch('/json/taiwangrid.json')
     .then(function(response) {
       return response.json();
     })
@@ -94,11 +94,11 @@ function normalMap_point(spatialType) {
       height = 400;
   let svg = d3.select("div#map").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
               .attr("viewBox", "0 0 " + width + " " + height)
-  var projection = d3.geoMercator().scale(4400).center([121,23.6]).translate([width/2,height/2]);
+  var projection = d3.geoMercator().scale(6000).center([120.7,23.6]).translate([width/2,height/2]);
   var path = d3.geoPath().projection(projection);
   let filePath;
   spatialType === "水庫" ? filePath = '/json/RESERVOIR.json': filePath ='/json/OBSERVATORY.json'
-  fetch('/json/TaiwanCountySimplify.json') 
+  fetch('/json/TaiwanCountySimplify.json')
     .then(function(response) {
       return response.json();
     })
@@ -115,7 +115,7 @@ function normalMap_point(spatialType) {
           return d.properties.NAME_2014
         })
     });
-  fetch(filePath) 
+  fetch(filePath)
     .then(function(response) {
       return response.json();
     })
