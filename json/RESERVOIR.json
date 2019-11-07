@@ -1,497 +1,106 @@
-[
-  {
-    "RESERVOIR": "石門水庫",
-    "longitude": 121.244576,
-    "latitude": 24.810836
-  },
-  {
-    "RESERVOIR": "西勢水庫",
-    "longitude": 121.734905,
-    "latitude": 25.087502
-  },
-  {
-    "RESERVOIR": "新山水庫",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "翡翠水庫",
-    "longitude": 121.579486,
-    "latitude": 24.909384
-  },
-  {
-    "RESERVOIR": "榮華壩",
-    "longitude": 121.351452,
-    "latitude": 24.737285
-  },
-  {
-    "RESERVOIR": "鳶山堰",
-    "longitude": 121.342359,
-    "latitude": 24.930262
-  },
-  {
-    "RESERVOIR": "桂山壩",
-    "longitude": 121.550542,
-    "latitude": 24.865067
-  },
-  {
-    "RESERVOIR": "三峽攔河堰",
-    "longitude": 121.37415,
-    "latitude": 24.895888
-  },
-  {
-    "RESERVOIR": "青潭堰",
-    "longitude": 121.544651,
-    "latitude": 24.943629
-  },
-  {
-    "RESERVOIR": "直潭壩",
-    "longitude": 121.53148,
-    "latitude": 24.92671
-  },
-  {
-    "RESERVOIR": "羅好壩",
-    "longitude": 121.526347,
-    "latitude": 24.831605
-  },
-  {
-    "RESERVOIR": "阿玉壩",
-    "longitude": 121.587236,
-    "latitude": 24.848471
-  },
-  {
-    "RESERVOIR": "木瓜壩",
-    "longitude": 121.415486,
-    "latitude": 24.002488
-  },
-  {
-    "RESERVOIR": "寶山水庫",
-    "longitude": 121.042444,
-    "latitude": 24.749083
-  },
-  {
-    "RESERVOIR": "青草湖",
-    "longitude": 120.967444,
-    "latitude": 24.781611
-  },
-  {
-    "RESERVOIR": "上坪攔河堰",
-    "longitude": 121.10356,
-    "latitude": 24.689998
-  },
-  {
-    "RESERVOIR": "隆恩堰",
-    "longitude": 121.036695,
-    "latitude": 24.797354
-  },
-  {
-    "RESERVOIR": "寶山第二水庫",
-    "longitude": 121.042548,
-    "latitude": 24.718595
-  },
-  {
-    "RESERVOIR": "永和山水庫",
-    "longitude": 120.92281,
-    "latitude": 24.661033
-  },
-  {
-    "RESERVOIR": "劍潭水庫",
-    "longitude": 120.901705,
-    "latitude": 24.62571
-  },
-  {
-    "RESERVOIR": "大埔水庫",
-    "longitude": 120.983528,
-    "latitude": 24.673722
-  },
-  {
-    "RESERVOIR": "明德水庫",
-    "longitude": 120.884955,
-    "latitude": 24.582622
-  },
-  {
-    "RESERVOIR": "粗坑溪攔河堰",
-    "longitude": 121.546656,
-    "latitude": 24.914422
-  },
-  {
-    "RESERVOIR": "羅東攔河堰",
-    "longitude": 121.753493,
-    "latitude": 24.703249
-  },
-  {
-    "RESERVOIR": "鯉魚潭水庫",
-    "longitude": 120.781285,
-    "latitude": 24.341357
-  },
-  {
-    "RESERVOIR": "德基水庫",
-    "longitude": 121.16788,
-    "latitude": 24.255236
-  },
-  {
-    "RESERVOIR": "石岡壩",
-    "longitude": 120.769372,
-    "latitude": 24.281487
-  },
-  {
-    "RESERVOIR": "谷關壩",
-    "longitude": 121.076106,
-    "latitude": 24.233618
-  },
-  {
-    "RESERVOIR": "八寶攔河堰",
-    "longitude": 120.831056,
-    "latitude": 24.234194
-  },
-  {
-    "RESERVOIR": "天輪壩",
-    "longitude": 121.015208,
-    "latitude": 24.210871
-  },
-  {
-    "RESERVOIR": "馬鞍壩",
-    "longitude": 120.914215,
-    "latitude": 24.184138
-  },
-  {
-    "RESERVOIR": "青山壩",
-    "longitude": 121.160334,
-    "latitude": 24.253128
-  },
-  {
-    "RESERVOIR": "鯉魚潭二期(士林堰)",
-    "longitude": 120.936647,
-    "latitude": 24.344288
-  },
-  {
-    "RESERVOIR": "霧社水庫",
-    "longitude": 121.139444,
-    "latitude": 23.980389
-  },
-  {
-    "RESERVOIR": "日月潭水庫",
-    "longitude": 120.902158,
-    "latitude": 23.862319
-  },
-  {
-    "RESERVOIR": "集集攔河堰",
-    "longitude": 120.763339,
-    "latitude": 23.818321
-  },
-  {
-    "RESERVOIR": "頭社水庫",
-    "longitude": 120.894861,
-    "latitude": 23.835444
-  },
-  {
-    "RESERVOIR": "明潭下池",
-    "longitude": 120.868847,
-    "latitude": 23.835976
-  },
-  {
-    "RESERVOIR": "銃櫃壩",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "武界壩",
-    "longitude": 121.057648,
-    "latitude": 23.914669
-  },
-  {
-    "RESERVOIR": "明湖下池",
-    "longitude": 120.871508,
-    "latitude": 23.853618
-  },
-  {
-    "RESERVOIR": "仁義潭水庫",
-    "longitude": 120.502911,
-    "latitude": 23.460679
-  },
-  {
-    "RESERVOIR": "蘭潭水庫",
-    "longitude": 120.47872,
-    "latitude": 23.4671
-  },
-  {
-    "RESERVOIR": "鹿寮溪",
-    "longitude": 120.478389,
-    "latitude": 23.384902
-  },
-  {
-    "RESERVOIR": "東口攔河堰",
-    "longitude": 120.4925,
-    "latitude": 23.219167
-  },
-  {
-    "RESERVOIR": "隘寮堰",
-    "longitude": 120.660848,
-    "latitude": 22.709749
-  },
-  {
-    "RESERVOIR": "內埔子",
-    "longitude": 120.493696,
-    "latitude": 23.530407
-  },
-  {
-    "RESERVOIR": "白河水庫",
-    "longitude": 120.471816,
-    "latitude": 23.357491
-  },
-  {
-    "RESERVOIR": "尖山埤",
-    "longitude": 120.393473,
-    "latitude": 23.264212
-  },
-  {
-    "RESERVOIR": "德元埤",
-    "longitude": 120.329667,
-    "latitude": 23.261389
-  },
-  {
-    "RESERVOIR": "烏山頭水庫",
-    "longitude": 120.368972,
-    "latitude": 23.201722
-  },
-  {
-    "RESERVOIR": "曾文水庫",
-    "longitude": 120.536713,
-    "latitude": 23.249889
-  },
-  {
-    "RESERVOIR": "南化水庫",
-    "longitude": 120.537013,
-    "latitude": 23.087176
-  },
-  {
-    "RESERVOIR": "鏡面水庫",
-    "longitude": 120.487989,
-    "latitude": 23.058196
-  },
-  {
-    "RESERVOIR": "虎頭埤",
-    "longitude": 120.333972,
-    "latitude": 23.026722
-  },
-  {
-    "RESERVOIR": "鹽水埤",
-    "longitude": 120.335472,
-    "latitude": 23.041972
-  },
-  {
-    "RESERVOIR": "玉峰攔河堰",
-    "longitude": 120.364826,
-    "latitude": 23.102886
-  },
-  {
-    "RESERVOIR": "澄清湖水庫",
-    "longitude": 120.354453,
-    "latitude": 22.652728
-  },
-  {
-    "RESERVOIR": "阿公店水庫(洩洪至阿公店溪)",
-    "longitude": 120.344811,
-    "latitude": 22.811241
-  },
-  {
-    "RESERVOIR": "鳳山水庫",
-    "longitude": 120.387465,
-    "latitude": 22.538888
-  },
-  {
-    "RESERVOIR": "中正湖",
-    "longitude": 120.551071,
-    "latitude": 22.905878
-  },
-  {
-    "RESERVOIR": "阿公店水庫(洩洪至二仁溪)",
-    "longitude": 120.345083,
-    "latitude": 22.81125
-  },
-  {
-    "RESERVOIR": "高屏溪攔河堰",
-    "longitude": 120.437151,
-    "latitude": 22.686987
-  },
-  {
-    "RESERVOIR": "東港溪攔河堰",
-    "longitude": 120.462291,
-    "latitude": 22.504425
-  },
-  {
-    "RESERVOIR": "甲仙攔河堰",
-    "longitude": 120.58326,
-    "latitude": 23.084835
-  },
-  {
-    "RESERVOIR": "牡丹水庫",
-    "longitude": 120.781306,
-    "latitude": 22.132944
-  },
-  {
-    "RESERVOIR": "龍鑾潭",
-    "longitude": 120.735781,
-    "latitude": 21.982726
-  },
-  {
-    "RESERVOIR": "成功水庫",
-    "longitude": 119.62449,
-    "latitude": 23.578978
-  },
-  {
-    "RESERVOIR": "溪畔壩",
-    "longitude": 121.583693,
-    "latitude": 24.177041
-  },
-  {
-    "RESERVOIR": "水簾壩",
-    "longitude": 121.430509,
-    "latitude": 24.000615
-  },
-  {
-    "RESERVOIR": "龍溪壩",
-    "longitude": 121.409996,
-    "latitude": 24.022485
-  },
-  {
-    "RESERVOIR": "酬勤水庫",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "興仁水庫",
-    "longitude": 119.602836,
-    "latitude": 23.539869
-  },
-  {
-    "RESERVOIR": "東衛水庫",
-    "longitude": 119.596122,
-    "latitude": 23.566843
-  },
-  {
-    "RESERVOIR": "赤崁水庫",
-    "longitude": 119.589611,
-    "latitude": 23.668
-  },
-  {
-    "RESERVOIR": "西安水庫",
-    "longitude": 119.499194,
-    "latitude": 23.372389
-  },
-  {
-    "RESERVOIR": "七美水庫",
-    "longitude": 119.422,
-    "latitude": 23.2055
-  },
-  {
-    "RESERVOIR": "小池水庫",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "烏溝蓄水塘",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "太湖水庫",
-    "longitude": 118.4288,
-    "latitude": 24.4384
-  },
-  {
-    "RESERVOIR": "田埔水庫",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "陽明湖水庫",
-    "longitude": 118.4295,
-    "latitude": 24.4594
-  },
-  {
-    "RESERVOIR": "山西蓄水塘",
-    "longitude": 118.43,
-    "latitude": 24.5074
-  },
-  {
-    "RESERVOIR": "榮湖水庫",
-    "longitude": 118.4089,
-    "latitude": 24.4877
-  },
-  {
-    "RESERVOIR": "擎天水庫",
-    "longitude": 118.3987,
-    "latitude": 24.4636
-  },
-  {
-    "RESERVOIR": "金沙水庫",
-    "longitude": 118.4018,
-    "latitude": 24.4948
-  },
-  {
-    "RESERVOIR": "蓮湖水庫",
-    "longitude": 118.2507,
-    "latitude": 24.4503
-  },
-  {
-    "RESERVOIR": "菱湖水庫",
-    "longitude": 118.2442,
-    "latitude": 24.4483
-  },
-  {
-    "RESERVOIR": "西湖水庫",
-    "longitude": 118.2298,
-    "latitude": 24.4379
-  },
-  {
-    "RESERVOIR": "勝利水庫",
-    "longitude": 119.9361,
-    "latitude": 26.1521
-  },
-  {
-    "RESERVOIR": "秋桂山水庫",
-    "longitude": 119.9248,
-    "latitude": 26.1675
-  },
-  {
-    "RESERVOIR": "珠螺水壩",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "儲水沃上壩",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "儲水沃水庫",
-    "longitude": 119.9169,
-    "latitude": 26.1531
-  },
-  {
-    "RESERVOIR": "津沙水庫",
-    "longitude": 119.9155,
-    "latitude": 26.1446
-  },
-  {
-    "RESERVOIR": "津沙1號壩",
-    "longitude": 119.9148,
-    "latitude": 26.1481
-  },
-  {
-    "RESERVOIR": "坂里水庫",
-    "longitude": 119.9741,
-    "latitude": 26.222
-  },
-  {
-    "RESERVOIR": "東湧水庫",
-    "longitude": "",
-    "latitude": ""
-  },
-  {
-    "RESERVOIR": "后沃水庫",
-    "longitude": 119.9238,
-    "latitude": 26.1617
-  }
+{
+"type": "FeatureCollection",
+"name": "RESERVOIR",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "RESERVOIR": "石門水庫", "longitude": 121.244576, "latitude": 24.810836 }, "geometry": { "type": "Point", "coordinates": [ 121.244576, 24.810836 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "西勢水庫", "longitude": 121.734905, "latitude": 25.087502 }, "geometry": { "type": "Point", "coordinates": [ 121.734905, 25.087502 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "新山水庫", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "翡翠水庫", "longitude": 121.579486, "latitude": 24.909384 }, "geometry": { "type": "Point", "coordinates": [ 121.579486, 24.909384 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "榮華壩", "longitude": 121.351452, "latitude": 24.737285 }, "geometry": { "type": "Point", "coordinates": [ 121.351452, 24.737285 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "鳶山堰", "longitude": 121.342359, "latitude": 24.930262 }, "geometry": { "type": "Point", "coordinates": [ 121.342359, 24.930262 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "桂山壩", "longitude": 121.550542, "latitude": 24.865067 }, "geometry": { "type": "Point", "coordinates": [ 121.550542, 24.865067 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "三峽攔河堰", "longitude": 121.37415, "latitude": 24.895888 }, "geometry": { "type": "Point", "coordinates": [ 121.37415, 24.895888 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "青潭堰", "longitude": 121.544651, "latitude": 24.943629 }, "geometry": { "type": "Point", "coordinates": [ 121.544651, 24.943629 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "直潭壩", "longitude": 121.53148, "latitude": 24.92671 }, "geometry": { "type": "Point", "coordinates": [ 121.53148, 24.92671 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "羅好壩", "longitude": 121.526347, "latitude": 24.831605 }, "geometry": { "type": "Point", "coordinates": [ 121.526347, 24.831605 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "阿玉壩", "longitude": 121.587236, "latitude": 24.848471 }, "geometry": { "type": "Point", "coordinates": [ 121.587236, 24.848471 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "木瓜壩", "longitude": 121.415486, "latitude": 24.002488 }, "geometry": { "type": "Point", "coordinates": [ 121.415486, 24.002488 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "寶山水庫", "longitude": 121.042444, "latitude": 24.749083 }, "geometry": { "type": "Point", "coordinates": [ 121.042444, 24.749083 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "青草湖", "longitude": 120.967444, "latitude": 24.781611 }, "geometry": { "type": "Point", "coordinates": [ 120.967444, 24.781611 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "上坪攔河堰", "longitude": 121.10356, "latitude": 24.689998 }, "geometry": { "type": "Point", "coordinates": [ 121.10356, 24.689998 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "隆恩堰", "longitude": 121.036695, "latitude": 24.797354 }, "geometry": { "type": "Point", "coordinates": [ 121.036695, 24.797354 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "寶山第二水庫", "longitude": 121.042548, "latitude": 24.718595 }, "geometry": { "type": "Point", "coordinates": [ 121.042548, 24.718595 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "永和山水庫", "longitude": 120.92281, "latitude": 24.661033 }, "geometry": { "type": "Point", "coordinates": [ 120.92281, 24.661033 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "劍潭水庫", "longitude": 120.901705, "latitude": 24.62571 }, "geometry": { "type": "Point", "coordinates": [ 120.901705, 24.62571 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "大埔水庫", "longitude": 120.983528, "latitude": 24.673722 }, "geometry": { "type": "Point", "coordinates": [ 120.983528, 24.673722 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "明德水庫", "longitude": 120.884955, "latitude": 24.582622 }, "geometry": { "type": "Point", "coordinates": [ 120.884955, 24.582622 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "粗坑溪攔河堰", "longitude": 121.546656, "latitude": 24.914422 }, "geometry": { "type": "Point", "coordinates": [ 121.546656, 24.914422 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "羅東攔河堰", "longitude": 121.753493, "latitude": 24.703249 }, "geometry": { "type": "Point", "coordinates": [ 121.753493, 24.703249 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "鯉魚潭水庫", "longitude": 120.781285, "latitude": 24.341357 }, "geometry": { "type": "Point", "coordinates": [ 120.781285, 24.341357 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "德基水庫", "longitude": 121.16788, "latitude": 24.255236 }, "geometry": { "type": "Point", "coordinates": [ 121.16788, 24.255236 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "石岡壩", "longitude": 120.769372, "latitude": 24.281487 }, "geometry": { "type": "Point", "coordinates": [ 120.769372, 24.281487 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "谷關壩", "longitude": 121.076106, "latitude": 24.233618 }, "geometry": { "type": "Point", "coordinates": [ 121.076106, 24.233618 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "八寶攔河堰", "longitude": 120.831056, "latitude": 24.234194 }, "geometry": { "type": "Point", "coordinates": [ 120.831056, 24.234194 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "天輪壩", "longitude": 121.015208, "latitude": 24.210871 }, "geometry": { "type": "Point", "coordinates": [ 121.015208, 24.210871 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "馬鞍壩", "longitude": 120.914215, "latitude": 24.184138 }, "geometry": { "type": "Point", "coordinates": [ 120.914215, 24.184138 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "青山壩", "longitude": 121.160334, "latitude": 24.253128 }, "geometry": { "type": "Point", "coordinates": [ 121.160334, 24.253128 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "鯉魚潭二期(士林堰)", "longitude": 120.936647, "latitude": 24.344288 }, "geometry": { "type": "Point", "coordinates": [ 120.936647, 24.344288 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "霧社水庫", "longitude": 121.139444, "latitude": 23.980389 }, "geometry": { "type": "Point", "coordinates": [ 121.139444, 23.980389 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "日月潭水庫", "longitude": 120.902158, "latitude": 23.862319 }, "geometry": { "type": "Point", "coordinates": [ 120.902158, 23.862319 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "集集攔河堰", "longitude": 120.763339, "latitude": 23.818321 }, "geometry": { "type": "Point", "coordinates": [ 120.763339, 23.818321 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "頭社水庫", "longitude": 120.894861, "latitude": 23.835444 }, "geometry": { "type": "Point", "coordinates": [ 120.894861, 23.835444 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "明潭下池", "longitude": 120.868847, "latitude": 23.835976 }, "geometry": { "type": "Point", "coordinates": [ 120.868847, 23.835976 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "銃櫃壩", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "武界壩", "longitude": 121.057648, "latitude": 23.914669 }, "geometry": { "type": "Point", "coordinates": [ 121.057648, 23.914669 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "明湖下池", "longitude": 120.871508, "latitude": 23.853618 }, "geometry": { "type": "Point", "coordinates": [ 120.871508, 23.853618 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "仁義潭水庫", "longitude": 120.502911, "latitude": 23.460679 }, "geometry": { "type": "Point", "coordinates": [ 120.502911, 23.460679 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "蘭潭水庫", "longitude": 120.47872, "latitude": 23.4671 }, "geometry": { "type": "Point", "coordinates": [ 120.47872, 23.4671 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "鹿寮溪", "longitude": 120.478389, "latitude": 23.384902 }, "geometry": { "type": "Point", "coordinates": [ 120.478389, 23.384902 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "東口攔河堰", "longitude": 120.4925, "latitude": 23.219167 }, "geometry": { "type": "Point", "coordinates": [ 120.4925, 23.219167 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "隘寮堰", "longitude": 120.660848, "latitude": 22.709749 }, "geometry": { "type": "Point", "coordinates": [ 120.660848, 22.709749 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "內埔子", "longitude": 120.493696, "latitude": 23.530407 }, "geometry": { "type": "Point", "coordinates": [ 120.493696, 23.530407 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "白河水庫", "longitude": 120.471816, "latitude": 23.357491 }, "geometry": { "type": "Point", "coordinates": [ 120.471816, 23.357491 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "尖山埤", "longitude": 120.393473, "latitude": 23.264212 }, "geometry": { "type": "Point", "coordinates": [ 120.393473, 23.264212 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "德元埤", "longitude": 120.329667, "latitude": 23.261389 }, "geometry": { "type": "Point", "coordinates": [ 120.329667, 23.261389 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "烏山頭水庫", "longitude": 120.368972, "latitude": 23.201722 }, "geometry": { "type": "Point", "coordinates": [ 120.368972, 23.201722 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "曾文水庫", "longitude": 120.536713, "latitude": 23.249889 }, "geometry": { "type": "Point", "coordinates": [ 120.536713, 23.249889 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "南化水庫", "longitude": 120.537013, "latitude": 23.087176 }, "geometry": { "type": "Point", "coordinates": [ 120.537013, 23.087176 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "鏡面水庫", "longitude": 120.487989, "latitude": 23.058196 }, "geometry": { "type": "Point", "coordinates": [ 120.487989, 23.058196 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "虎頭埤", "longitude": 120.333972, "latitude": 23.026722 }, "geometry": { "type": "Point", "coordinates": [ 120.333972, 23.026722 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "鹽水埤", "longitude": 120.335472, "latitude": 23.041972 }, "geometry": { "type": "Point", "coordinates": [ 120.335472, 23.041972 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "玉峰攔河堰", "longitude": 120.364826, "latitude": 23.102886 }, "geometry": { "type": "Point", "coordinates": [ 120.364826, 23.102886 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "澄清湖水庫", "longitude": 120.354453, "latitude": 22.652728 }, "geometry": { "type": "Point", "coordinates": [ 120.354453, 22.652728 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "阿公店水庫(洩洪至阿公店溪)", "longitude": 120.344811, "latitude": 22.811241 }, "geometry": { "type": "Point", "coordinates": [ 120.344811, 22.811241 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "鳳山水庫", "longitude": 120.387465, "latitude": 22.538888 }, "geometry": { "type": "Point", "coordinates": [ 120.387465, 22.538888 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "中正湖", "longitude": 120.551071, "latitude": 22.905878 }, "geometry": { "type": "Point", "coordinates": [ 120.551071, 22.905878 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "阿公店水庫(洩洪至二仁溪)", "longitude": 120.345083, "latitude": 22.81125 }, "geometry": { "type": "Point", "coordinates": [ 120.345083, 22.81125 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "高屏溪攔河堰", "longitude": 120.437151, "latitude": 22.686987 }, "geometry": { "type": "Point", "coordinates": [ 120.437151, 22.686987 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "東港溪攔河堰", "longitude": 120.462291, "latitude": 22.504425 }, "geometry": { "type": "Point", "coordinates": [ 120.462291, 22.504425 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "甲仙攔河堰", "longitude": 120.58326, "latitude": 23.084835 }, "geometry": { "type": "Point", "coordinates": [ 120.58326, 23.084835 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "牡丹水庫", "longitude": 120.781306, "latitude": 22.132944 }, "geometry": { "type": "Point", "coordinates": [ 120.781306, 22.132944 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "龍鑾潭", "longitude": 120.735781, "latitude": 21.982726 }, "geometry": { "type": "Point", "coordinates": [ 120.735781, 21.982726 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "成功水庫", "longitude": 119.62449, "latitude": 23.578978 }, "geometry": { "type": "Point", "coordinates": [ 119.62449, 23.578978 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "溪畔壩", "longitude": 121.583693, "latitude": 24.177041 }, "geometry": { "type": "Point", "coordinates": [ 121.583693, 24.177041 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "水簾壩", "longitude": 121.430509, "latitude": 24.000615 }, "geometry": { "type": "Point", "coordinates": [ 121.430509, 24.000615 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "龍溪壩", "longitude": 121.409996, "latitude": 24.022485 }, "geometry": { "type": "Point", "coordinates": [ 121.409996, 24.022485 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "酬勤水庫", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "興仁水庫", "longitude": 119.602836, "latitude": 23.539869 }, "geometry": { "type": "Point", "coordinates": [ 119.602836, 23.539869 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "東衛水庫", "longitude": 119.596122, "latitude": 23.566843 }, "geometry": { "type": "Point", "coordinates": [ 119.596122, 23.566843 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "赤崁水庫", "longitude": 119.589611, "latitude": 23.668 }, "geometry": { "type": "Point", "coordinates": [ 119.589611, 23.668 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "西安水庫", "longitude": 119.499194, "latitude": 23.372389 }, "geometry": { "type": "Point", "coordinates": [ 119.499194, 23.372389 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "七美水庫", "longitude": 119.422, "latitude": 23.2055 }, "geometry": { "type": "Point", "coordinates": [ 119.422, 23.2055 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "小池水庫", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "烏溝蓄水塘", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "太湖水庫", "longitude": 118.4288, "latitude": 24.4384 }, "geometry": { "type": "Point", "coordinates": [ 118.4288, 24.4384 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "田埔水庫", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "陽明湖水庫", "longitude": 118.4295, "latitude": 24.4594 }, "geometry": { "type": "Point", "coordinates": [ 118.4295, 24.4594 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "山西蓄水塘", "longitude": 118.43, "latitude": 24.5074 }, "geometry": { "type": "Point", "coordinates": [ 118.43, 24.5074 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "榮湖水庫", "longitude": 118.4089, "latitude": 24.4877 }, "geometry": { "type": "Point", "coordinates": [ 118.4089, 24.4877 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "擎天水庫", "longitude": 118.3987, "latitude": 24.4636 }, "geometry": { "type": "Point", "coordinates": [ 118.3987, 24.4636 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "金沙水庫", "longitude": 118.4018, "latitude": 24.4948 }, "geometry": { "type": "Point", "coordinates": [ 118.4018, 24.4948 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "蓮湖水庫", "longitude": 118.2507, "latitude": 24.4503 }, "geometry": { "type": "Point", "coordinates": [ 118.2507, 24.4503 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "菱湖水庫", "longitude": 118.2442, "latitude": 24.4483 }, "geometry": { "type": "Point", "coordinates": [ 118.2442, 24.4483 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "西湖水庫", "longitude": 118.2298, "latitude": 24.4379 }, "geometry": { "type": "Point", "coordinates": [ 118.2298, 24.4379 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "勝利水庫", "longitude": 119.9361, "latitude": 26.1521 }, "geometry": { "type": "Point", "coordinates": [ 119.9361, 26.1521 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "秋桂山水庫", "longitude": 119.9248, "latitude": 26.1675 }, "geometry": { "type": "Point", "coordinates": [ 119.9248, 26.1675 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "珠螺水壩", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "儲水沃上壩", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "儲水沃水庫", "longitude": 119.9169, "latitude": 26.1531 }, "geometry": { "type": "Point", "coordinates": [ 119.9169, 26.1531 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "津沙水庫", "longitude": 119.9155, "latitude": 26.1446 }, "geometry": { "type": "Point", "coordinates": [ 119.9155, 26.1446 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "津沙1號壩", "longitude": 119.9148, "latitude": 26.1481 }, "geometry": { "type": "Point", "coordinates": [ 119.9148, 26.1481 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "坂里水庫", "longitude": 119.9741, "latitude": 26.222 }, "geometry": { "type": "Point", "coordinates": [ 119.9741, 26.222 ] } },
+{ "type": "Feature", "properties": { "RESERVOIR": "東湧水庫", "longitude": null, "latitude": null }, "geometry": null },
+{ "type": "Feature", "properties": { "RESERVOIR": "后沃水庫", "longitude": 119.9238, "latitude": 26.1617 }, "geometry": { "type": "Point", "coordinates": [ 119.9238, 26.1617 ] } }
 ]
+}
