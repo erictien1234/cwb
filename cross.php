@@ -65,7 +65,7 @@
           </div>
         </div>
         <div class="card col-6 col-md-8">
-          <div class="container d-flex flex-fill flex-wrap" id="present">
+          <div class="container d-flex flex-fill align-self-start flex-wrap" id="present">
           </div>
           <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
           <script src="./js/chart_new.js"></script>
@@ -79,17 +79,28 @@
 
   <?php require_once "footer.php"?>
   <script>
+    let mapstate = {"map":"normal","area":[],"point":[]};
+    let counter = 0;
     $("button.clear1").on("click",function(){
       $("#sel1").empty();
       $("#sel2").empty();
       $("#sel3").empty();
       $("#sel4").val("");
     })
+    $("button.clear2").click(function(){
+      cleanCanvas();
+      changemapcolor(mapstate,'none');
+      mapstate = {"map":"normal","area":[],"point":[]};
+      counter = 0;
+    })
     $("button.fieldsel").on("click",function(){
       $("button.fieldsel").removeClass("active");
       $(this).addClass("active");
       $("select.sel1").empty();
       $("select.sel1").append("<option style='display:none'>請選擇</option>");
+      $("#sel2").empty();
+      $("#sel3").empty();
+      $("#sel4").val("");
       $.post("db_search.php", {
         type: 'output',
         field: $(this).val()
@@ -166,22 +177,46 @@
           date: $("#sel4").val()
         }, function(data){
           console.log(data);
-          $("div#present").append("<h6 class='card-title resulttitle'></h6>");
+          $("div#present").append("<h6 class='card-title resulttitle'>" + $("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text() + "</h6>");
           // 呈現控制
+          var dynamicColors = function() {
+              var r = Math.floor(Math.random() * 255);
+              var g = Math.floor(Math.random() * 255);
+              var b = Math.floor(Math.random() * 255);
+              return "rgba(" + r + "," + g + "," + b + ", 0.5)";
+           };
           var splitdata = data.split(',');
           let StartDate = $("#sel4").val();
           let week_date = [];
           let week_date_short= [];
           let inputData = [];
           for (var i = 0; i < splitdata[0].split(';').length; i++) {
+            counter++;
             switch (splitdata[0].split(';')[i]) {
               case 'A':  //pie
-                pieChart()
+                //  F;A,月,縣市,1.安全2.警戒預備3.嚴重警戒4.高溫警戒,[嚴重警戒=37][安全=0.1][寒冷危險=59.6][警界預備=3.3]
+                let pie_data = {
+                  Type: "A",
+                  Valve:{
+                    datasets: [{
+                      data: data.substring(data.indexOf("[")+1, data.length-1).split("][").map((item => parseFloat(item.substring(item.indexOf("=")+1, item.length)))),
+                      backgroundColor: [
+                        dynamicColors(),
+                        dynamicColors(),
+                        dynamicColors()
+                      ]
+                    }],
+                    // These labels appear in the legend and in the tooltips when hovering different arcs
+                    labels: data.substring(data.indexOf("[")+1, data.length-1).split("][").map((item => item.substring(0, item.indexOf("=")))),
+                  },
+                };
+                pieChart(pie_data,counter)
                 break;
               case 'B': //bar
-                for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
+                for(i=0;i<data.substring( data.indexOf("[[")+2, data.indexOf("]")-1 ).split(",").map((item) => parseFloat(item)).length;i++){
                   const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
                   if(splitdata[1] === "週") {
+                    week_date.push(firstday.addDays(7*i).toString());
                   } else {
                     week_date.push(firstday.addDays(i).toString());
                   }
@@ -197,7 +232,7 @@
                       label: $("#sel3 :selected").text(),
                       backgroundColor: 'green',
                       borderColor: 'white',
-                      data: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item))
+                      data: data.substring( data.indexOf("[[")+2, data.indexOf("]")-1 ).split(",").map((item) => parseFloat(item))
                       },
                     ]
                   },
@@ -215,35 +250,42 @@
                   },
                   StartDate,
                   Location: $("#sel3 :selected").text(),
-                  TimeScale: splitdata[2],
-                  StartDate,
-                  Location: $("#sel3 :selected").text(),
-                  TimeScale: splitdata[2],
-                })
+                  TimeScale: splitdata[1],
+                },counter)
                 break;
               case 'C':
                 // bar by unit
                 break;
               case 'D':  //line
-                for(i=0;i<data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item)).length;i++){
+                for(i=0;i<data.substring( data.indexOf("[[")+2, data.indexOf("]")-2 ).split(",").length;i++){
                   const firstday = new Date(StartDate.substring(0,4),StartDate.substring(5,7)-1,StartDate.substring(8,10));
                   if(splitdata[1] === "週") {
+                    week_date.push(firstday.addDays(7*i).toString());
                   } else {
                     week_date.push(firstday.addDays(i).toString());
-                  }              }
+                  }
+                }
                 week_date_short = week_date.map((item) => item.substring(4,7).concat(item.substring(8,10)));
+                let lineData_raw = data.substring( data.indexOf("[[")+2, data.length-3 ).split(",][");
+                let line_datasets = [];
+                let labels = [];
+                lineData_raw.length === 5? labels = ["最小值", "Q25", "中位數", "Q75", "最大值"]: labels = [$("#sel3 :selected").text()];
+                for(i=0; i<lineData_raw.length; i++){
+                  let lineData_single = {
+                    label: labels[i],
+                    // fill: false,
+                    borderColor: dynamicColors(),
+                    data: lineData_raw[i].split(",").map((item) => parseFloat(item))
+                  }
+                  line_datasets[i] = lineData_single;
+                }
+
+                // console.log(line_datasets);
                 lineChart({
                   Type: "D",
                   WaterStorage: {
                     labels: week_date_short,
-                    datasets: [
-                      {
-                      label: $("#sel3 :selected").text(),
-                      fill: false,
-                      borderColor: 'white',
-                      data: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(",").map((item) => parseFloat(item))
-                      },
-                    ],
+                    datasets:line_datasets,
                   },
                   options: {
                     responsive: true,
@@ -259,17 +301,52 @@
                   },
                   StartDate,
                   Location: $("#sel3 :selected").text(),
-                  TimeScale: splitdata[2],
-                })
+                  TimeScale: splitdata[1],
+                },counter)
                 break;
               case 'E':
                 // line by unit
                 break;
-              case 'F':
-                //normal map
+              case 'F':  //normal map
+                // cleanMaps();
+                if (mapstate.map !== 'normal') {
+                  cleanMaps();
+                  normalMap();
+                }
+                let spatialType = splitdata[2];
+                // if(spatialType === "縣市"){
+                //   // normalMap();
+                //   $("path#"+$("#sel3 :selected").text()).css("fill",'red');
+                // } else {
+                //   normalMap_point(spatialType);
+                // }
+                // changemapcolor(mapstate,'none');
+                // mapstate = {"map":"normal","area":[],"point":[]};
+                if(spatialType === "縣市"){
+                  mapstate.area.push($("#sel3 :selected").text());
+                } else {
+                  mapstate.point.push($("#sel3 :selected").text());
+                }
+                changemapcolor(mapstate,'red');
                 break;
-              case 'G':
-                //raster map
+              case 'G':  //raster map
+                cleanMaps();
+                let rasterData_raw = data.substring(data.indexOf("[")+1, data.length-1).split("][");
+                let rasterData = [];
+                let max = 0;
+                let min = 0;
+                for(let i = 0; i<rasterData_raw.length; i++){
+                  let pointData = {
+                    "x": parseFloat(rasterData_raw[i].split(",")[0]),
+                    "y": parseFloat(rasterData_raw[i].split(",")[1]),
+                    "value": parseFloat(rasterData_raw[i].split(",")[2])
+                  }
+                  max = Math.max(max,parseFloat(rasterData_raw[i].split(",")[2]));
+                  min = Math.min(min,parseFloat(rasterData_raw[i].split(",")[2]));
+                  rasterData[i] = pointData;
+                }
+                let unit = data.split(',')[3];
+                rasterMap(rasterData, max, min, unit);
                 break;
               case 'H':
                 // table
@@ -279,11 +356,10 @@
                   Type: "I",
                   Light: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(","),
                   Timescale: splitdata[2]
-                })
+                },counter)
                 break;
             }
           }
-          $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text());
         })
       }
       else {

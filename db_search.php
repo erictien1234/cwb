@@ -133,7 +133,7 @@
           }
         }
         echo date("Y") . '-' . $date[0] . ',' . date("Y") . '-' . end($date) . ';';
-      } else if ($cname == 'TAIWANGRID' || $cname == 'taiwangrid'){
+      } elseif ($cname == 'TAIWANGRID' || $cname == 'taiwangrid'){
         $sql1 = "SELECT DISTINCT TIME FROM $table t where TIME != '0000-00-00'";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
         if (mysqli_num_rows($result1) > 0) {

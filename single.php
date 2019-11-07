@@ -46,15 +46,12 @@
           </form>
           <div class="ml-auto pr-4 py-4">
             <label class="falseresult pr-3" style="display:none;color:rgb(255, 0, 0)">請選取完整項目</label>
-            <button type="button" name="button" class="btn btn-primary search" id="singlesearchlight">查詢light</button>
-            <button type="button" name="button" class="btn btn-primary search" id="singlesearchpie">查詢pie</button>
-            <button type="button" name="button" class="btn btn-primary search" id="singlesearchline">查詢line</button>
-            <button type="button" name="button" class="btn btn-primary search" id="singlesearchbar">查詢bar</button>
+            <button type="button" name="button" class="btn btn-primary search" id="singlesearch">查詢</button>
           </div>
         </div>
         <div class="card mt-3 flex-fill" >
           <h6 class="card-title resulttitle"></h6>
-          <div class="container d-flex flex-fill align-items-center flex-wrap" id="present">
+          <div class="container d-flex flex-fill flex-wrap" id="present">
             <!-- <div id="lightChartContainer" class="container">
             </div>
             <div id="pieChartContainer" class="container">
@@ -72,6 +69,7 @@
   </div>
 </div>
 <script>
+  let mapstate = {"map":"normal","area":[],"point":[]};
   $("#sel1").on("change",function(){
     $("#sel2").empty();
     $("#sel3").empty();
@@ -128,12 +126,12 @@
                       dynamicColors(),
                       dynamicColors()
                     ]
-                  }],
+                  },0],
                   // These labels appear in the legend and in the tooltips when hovering different arcs
                   labels: data.substring(data.indexOf("[")+1, data.length-1).split("][").map((item => item.substring(0, item.indexOf("=")))),
                 },
               };
-              pieChart(pie_data)
+              pieChart(pie_data,0)
               break;
             case 'B': //bar
               cleanCanvas();
@@ -175,7 +173,7 @@
                 StartDate,
                 Location: $("#sel3 :selected").text(),
                 TimeScale: splitdata[1],
-              })
+              },0)
               break;
             case 'C':
               // bar by unit
@@ -204,7 +202,7 @@
                 }
                 line_datasets[i] = lineData_single;
               }
-              
+
               // console.log(line_datasets);
               lineChart({
                 Type: "D",
@@ -227,19 +225,32 @@
                 StartDate,
                 Location: $("#sel3 :selected").text(),
                 TimeScale: splitdata[1],
-              })
+              },0)
               break;
             case 'E':
               // line by unit
               break;
             case 'F':  //normal map
-              cleanMaps();
-              let spatialType = splitdata[2];
-              if(spatialType === "縣市"){
+              // cleanMaps();
+              if (mapstate.map !== 'normal') {
+                cleanMaps();
                 normalMap();
-              } else {
-                normalMap_point(spatialType);
               }
+              let spatialType = splitdata[2];
+              // if(spatialType === "縣市"){
+              //   // normalMap();
+              //   $("path#"+$("#sel3 :selected").text()).css("fill",'red');
+              // } else {
+              //   normalMap_point(spatialType);
+              // }
+              changemapcolor(mapstate,'none');
+              mapstate = {"map":"normal","area":[],"point":[]};
+              if(spatialType === "縣市"){
+                mapstate.area.push($("#sel3 :selected").text());
+              } else {
+                mapstate.point.push($("#sel3 :selected").text());
+              }
+              changemapcolor(mapstate,'red');
               break;
             case 'G':  //raster map
               cleanMaps();
@@ -257,7 +268,8 @@
                 min = Math.min(min,parseFloat(rasterData_raw[i].split(",")[2]));
                 rasterData[i] = pointData;
               }
-              rasterMap(rasterData, max, min);
+              let unit = data.split(',')[3];
+              rasterMap(rasterData, max, min, unit);
               break;
             case 'H':
               // table
@@ -268,7 +280,7 @@
                 Type: "I",
                 Light: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(","),
                 Timescale: splitdata[2]
-              })
+              },0)
               break;
           }
         }

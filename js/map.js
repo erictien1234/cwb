@@ -2,36 +2,41 @@ function cleanMaps() {
   document.getElementById("map").innerHTML = "";
 }
 
-function normalMap() {
-  let geoMultiPolygon;
-  let width = 300,
-      height = 400;
-  let svg = d3.select("div#map").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
-              .attr("viewBox", "0 0 " + width + " " + height)
-              .attr("id", "mapSvg")
-  var projection = d3.geoMercator().scale(6000).center([120.7,23.6]).translate([width/2,height/2]);
-  var path = d3.geoPath().projection(projection);
-  fetch('/json/TaiwanCountySimplify.json') //TaiwanCountySimplify.json//
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(myJson) {
-      geoMultiPolygon = myJson;
-      console.log(geoMultiPolygon);
-      svg.selectAll("path")
-        .data(geoMultiPolygon.features)
-        .enter()
-        .append("path")
-        .attr("class","map")
-        .attr("style", "z-index: 1")
-        .attr("d", path)
-        .attr("id", function(d){
-          return d.properties.NAME_2014
-        })
-    });
-}
+// function normalMap(mapstate) {
+//   let geoMultiPolygon;
+//   let width = 300,
+//       height = 400;
+//   let svg = d3.select("div#map").append("svg").attr("preserveAspectRatio", "xMinYMin meet")
+//               .attr("viewBox", "0 0 " + width + " " + height)
+//               .attr("id", "mapSvg")
+//   var projection = d3.geoMercator().scale(6000).center([120.7,23.6]).translate([width/2,height/2]);
+//   var path = d3.geoPath().projection(projection);
+//   fetch('/json/TaiwanCountySimplify.json') //TaiwanCountySimplify.json//
+//     .then(function(response) {
+//       return response.json();
+//     })
+//     .then(function(myJson) {
+//       geoMultiPolygon = myJson;
+//       console.log(geoMultiPolygon);
+//       svg.selectAll("path")
+//         .data(geoMultiPolygon.features)
+//         .enter()
+//         .append("path")
+//         .attr("class","map")
+//         .attr("style", "z-index: 1")
+//         .attr("d", path)
+//         .attr("id", function(d){
+//           return d.properties.NAME_2014
+//         })
+//     });
+//   if (mapstate !== undefined) {
+//     document.getElementById(mapstate).setAttribute("style","fill: red");
+//     // $("path#"+$("#sel3 :selected").text()).css("fill",'red');
+//     // console.log($("#sel3 :selected").text());
+//   }
+// }
 
-function rasterMap(rasterData, max, min) {
+function rasterMap(rasterData, max, min, unit) {
   console.log(rasterData);
   const color = ['#ff0000', '#fa001f', '#f30033', '#ed0045', '#e50055', '#df0062', '#d80071', '#d0007f', '#c8008c', '#c00097', '#b600a5', '#ad00ae', '#a200bc', '#9600c7', '#8a00d1', '#7b00dc', '#6d00e4', '#5900ee', '#3d00f7', '#0000ff'];
   for(let i = 0; i<rasterData.length; i++){
@@ -100,7 +105,7 @@ function rasterMap(rasterData, max, min) {
   linearGradient.append("stop")
     .attr("offset", "0%")
     .attr("stop-color", '#ff0000');
-    
+
   linearGradient.append("stop")
     .attr("offset", "100%")
     .attr("stop-color", "#0000ff");
@@ -113,7 +118,7 @@ function rasterMap(rasterData, max, min) {
     .attr("x", Lposition[0])
     .attr("y", Lposition[1])
     .style("fill", "url(#linear-gradient)");
-  
+
   svg.selectAll("text")
     .data([
       {x:Lposition[0]+Lsize[0]+5, y: Lposition[1]+Lsize[1]+5-Lsize[1]*0, label: Math.round(min*100)/100 },
@@ -135,12 +140,12 @@ function rasterMap(rasterData, max, min) {
     .text(function(d) { return d.label; });
   svg.append("text")
     .style("font-size", "12px")
-    .text("日雨量/ mm")
+    .text(unit)
     .attr("x", 230)
     .attr("y", 160)
 }
 
-function normalMap_point(spatialType) {
+function normalMap() {
   // let spatialType = "水庫" ;
   let geoMultiPolygon;
   let width = 300,
@@ -149,8 +154,9 @@ function normalMap_point(spatialType) {
               .attr("viewBox", "0 0 " + width + " " + height)
   var projection = d3.geoMercator().scale(6000).center([120.7,23.6]).translate([width/2,height/2]);
   var path = d3.geoPath().projection(projection);
-  let filePath;
-  spatialType === "水庫" ? filePath = '/json/RESERVOIR.json': filePath ='/json/OBSERVATORY.json'
+  let filePathR = '/json/RESERVOIR.json';
+  let filePathO = '/json/OBSERVATORY.json';
+  // spatialType === "水庫" ? filePath = '/json/RESERVOIR.json': filePath ='/json/OBSERVATORY.json'
   fetch('/json/TaiwanCountySimplify.json')
     .then(function(response) {
       return response.json();
@@ -165,24 +171,60 @@ function normalMap_point(spatialType) {
         .attr("class","map")
         .attr("d", path)
         .attr("id", function(d){
-          return d.properties.NAME_2014
+          return d.properties.Name
         })
     });
-  fetch(filePath)
+  fetch(filePathR)
     .then(function(response) {
       return response.json();
     })
     .then(function(myJson) {
       geoMultiPolygon = myJson;
       console.log(geoMultiPolygon);
-      svg.selectAll("path")
+      svg.selectAll("circle")
         .data(geoMultiPolygon.features)
         .enter()
         .append("path")
         .attr("class","map_point")
         .attr("d", path)
         .attr("id", function(d){
-          return d.properties.ObservatoryName
+          return d.properties.Name;
         })
     });
+  fetch(filePathO)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(myJson) {
+      geoMultiPolygon = myJson;
+      console.log(geoMultiPolygon);
+      svg.selectAll("circle")
+        .data(geoMultiPolygon.features)
+        .enter()
+        .append("path")
+        .attr("class","map_point")
+        .attr("d", path)
+        .attr("id", function(d){
+          return d.properties.Name
+        })
+    });
+}
+
+function changemapcolor(mapstate, color){
+  if (color === 'none') {
+    mapstate.area.forEach(item => {
+      document.getElementById(item).setAttribute("style",`fill: ${color}`);
+    });
+    mapstate.point.forEach(item => {
+      document.getElementById(item).setAttribute("style",`fill: ${color};stroke: none`);
+    });
+  } else{
+    mapstate.area.forEach(item => {
+      document.getElementById(item).setAttribute("style",`fill: ${color}`);
+    });
+    mapstate.point.forEach(item => {
+      document.getElementById(item).setAttribute("style",`fill: ${color};stroke: black`);
+    });
+  }
+
 }
