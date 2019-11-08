@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"name": "Name",
+"name": "RESERVOIR",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "Name": "石門水庫", "longitude": 121.244576, "latitude": 24.810836 }, "geometry": { "type": "Point", "coordinates": [ 121.244576, 24.810836 ] } },

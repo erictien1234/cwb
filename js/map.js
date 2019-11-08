@@ -156,6 +156,8 @@ function normalMap() {
   var path = d3.geoPath().projection(projection);
   let filePathR = '/json/RESERVOIR.json';
   let filePathO = '/json/OBSERVATORY.json';
+  let filePathI = '/json/IRRIGATION.json';
+  let filePathT = '/json/twtownsimplify.json';
   // spatialType === "水庫" ? filePath = '/json/RESERVOIR.json': filePath ='/json/OBSERVATORY.json'
   fetch('/json/TaiwanCountySimplify.json')
     .then(function(response) {
@@ -169,6 +171,40 @@ function normalMap() {
         .enter()
         .append("path")
         .attr("class","map")
+        .attr("d", path)
+        .attr("id", function(d){
+          return d.properties.Name
+        })
+    });
+  fetch(filePathI)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(myJson) {
+      geoMultiPolygon = myJson;
+      console.log(geoMultiPolygon);
+      svg.selectAll("circle")
+        .data(geoMultiPolygon.features)
+        .enter()
+        .append("path")
+        .attr("class","map_point")
+        .attr("d", path)
+        .attr("id", function(d){
+          return d.properties.Name
+        })
+    });
+  fetch(filePathT)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(myJson) {
+      geoMultiPolygon = myJson;
+      console.log(geoMultiPolygon);
+      svg.selectAll("circle")
+        .data(geoMultiPolygon.features)
+        .enter()
+        .append("path")
+        .attr("class","map_point")
         .attr("d", path)
         .attr("id", function(d){
           return d.properties.Name

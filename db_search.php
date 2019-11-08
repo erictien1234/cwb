@@ -261,7 +261,11 @@
         if (mysqli_num_rows($result1) > 0) {
           echo '[';
           while($row1 = mysqli_fetch_assoc($result1)) {
-            echo $row1['DATA'];
+            if (is_numeric($row1['DATA']) == true) {
+              echo '[' . $row1['DATA'] . ']';
+            } else {
+              echo $row1['DATA'];
+            }
           }
           echo ']';
         }
