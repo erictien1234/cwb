@@ -19,7 +19,7 @@
     <div class="row my-2">
       <label class="col-4 text-right p-0 my-auto mr-2">輸出數據</label>
       <button type="button" class="btn btn-success mx-3 download" data-toggle="modal" data-target="#download">網頁下載</button>
-      <button type="button" class="btn btn-info mx-3" id="apirequest" value="">API下載</button>
+      <button type="button" class="btn btn-info mx-3 api" data-toggle="modal" data-target="#apirequest">API下載</button>
       <!-- Modal -->
     </div>
     <div class="row adv-btn my-2">
@@ -229,6 +229,25 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
             <button type="button" class="btn btn-primary" id="geturl">取得下載連結</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="apirequest" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">API說明</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row m-4">
+              <p>API說明在這裡</p>
+            </div>
+          </div>
+          <div class="modal-footer">
           </div>
         </div>
       </div>
