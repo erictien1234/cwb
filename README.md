@@ -5,7 +5,9 @@
 開發團隊：國立台灣大學永續發展研究室
 
 介面設計─田育全、張芹嘉
+
 前端呈現─田育全、黃宇弘
+
 後端計算與資料庫設計─田育全、黃蓉
 
 This platform is funded by Taiwan Central Weather Bureau in 2019
@@ -13,5 +15,7 @@ This platform is funded by Taiwan Central Weather Bureau in 2019
 Development Team: Sustainable Development Lab, National Taiwan University
 
 UI Design: Yu-Chuan Tien, Chin-Chia Chang
+
 Front-end Engineer: Yu-Chuan Tien, Yu-Hung Huang
+
 Database Design and Back-end Engineer: Yu-Chuan Tien, Jung Huang
