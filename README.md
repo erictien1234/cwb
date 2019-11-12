@@ -1,6 +1,6 @@
 # cwb
 
-本平台為中央氣象局P6推動氣候資訊整合與無間隙應用服務 計畫產品
+本平台為2019年中央氣象局P6推動氣候資訊整合與無間隙應用服務 計畫產品
 
 開發團隊：國立台灣大學永續發展研究室
 
@@ -8,7 +8,7 @@
 前端呈現─田育全、黃宇弘
 後端計算與資料庫設計─田育全、黃蓉
 
-This platform is funded by Taiwan Central Weather Bureau
+This platform is funded by Taiwan Central Weather Bureau in 2019
 
 Development Team: Sustainable Development Lab, National Taiwan University
 
