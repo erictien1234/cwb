@@ -74,6 +74,7 @@
         })
         $("button#geturl").click(function(){
           $.post('back_geturl.php',{
+            type:'download',
             TABLE: $("button.download").val(),
             where: $("#sel3 option:selected").text(),
             date: $("#sel4").val()
@@ -86,6 +87,15 @@
               window.open(data);
             }
           });
+        });
+        $("button.api").click(function(){
+          $.post("back_geturl.php",{
+            type:'api',
+            TABLE: $("button.download").val()
+          },function(data){
+            $("p.apiurl").empty();
+            $("div.apiurl").append("<p class='apiurl'>" + data + "</p>");
+          })
         });
         $("button#savechange").click(function(){
           $.post('back_updatemeta.php',{
@@ -243,8 +253,10 @@
             </button>
           </div>
           <div class="modal-body">
-            <div class="row m-4">
-              <p>API說明在這裡</p>
+            <div class="row m-4 apiurl">
+              <p>API使用說明：</p>
+              <p>請利用下列API網址取得數據，並將WWWW改為該資料之空間位置，YYYY-MM-DD為要查詢的時間，並依格式填入。</p>
+              <p>(若查詢錯誤或無此資料，則會跳出空值或server error。)</p>
             </div>
           </div>
           <div class="modal-footer">

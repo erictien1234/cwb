@@ -18,7 +18,7 @@
   $response = 0;
   if(in_array($file_extension,$csv_ext)){
     // Upload file
-    if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
+    if(move_uploaded_file($_FILES['file']['tmp_name'],$location) or die("Upload errorji3")){
       $response = $location;
     }
     require_once 'db.php';
