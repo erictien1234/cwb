@@ -69,7 +69,7 @@
   </div>
 </div>
 <script>
-  let mapstate = {"map":"normal","area":[],"point":[]};
+  let mapstate = {"map":"normal","area":[],"point":[],"color":""};
   $("#sel1").on("change",function(){
     $("#sel2").empty();
     $("#sel3").empty();
@@ -116,12 +116,14 @@
             case 'A':  //pie
               //  F;A,月,縣市,1.安全2.警戒預備3.嚴重警戒4.高溫警戒,[嚴重警戒=37][安全=0.1][寒冷危險=59.6][警界預備=3.3]
               cleanCanvas();
+              mapstate.color = dynamicColors();
               let pie_data = {
                 Type: "A",
                 Valve:{
                   datasets: [{
                     data: data.substring(data.indexOf("[")+1, data.length-1).split("][").map((item => parseFloat(item.substring(item.indexOf("=")+1, item.length)))),
                     backgroundColor: [
+                      mapstate.color,
                       dynamicColors(),
                       dynamicColors(),
                       dynamicColors()
@@ -144,7 +146,8 @@
                 }
               }
               week_date_short = week_date.map((item) => item.substring(4,7).concat(item.substring(8,10)));
-              barChart({
+              mapstate.color = dynamicColors();
+              let bar_data = {
                 Type: "B",
                 WaterStorage: {
                   yAxisID: "萬噸",
@@ -152,7 +155,7 @@
                   datasets: [
                     {
                     label: $("#sel3 :selected").text(),
-                    backgroundColor: 'green',
+                    backgroundColor: mapstate.color,
                     borderColor: 'white',
                     data: data.substring( data.indexOf("[[")+2, data.indexOf("]")-1 ).split(",").map((item) => parseFloat(item))
                     },
@@ -173,7 +176,8 @@
                 StartDate,
                 Location: $("#sel3 :selected").text(),
                 TimeScale: splitdata[1],
-              },0);
+              };
+              barChart(bar_data,0)
               break;
             case 'C':
               // bar by unit
@@ -202,7 +206,7 @@
                 }
                 line_datasets[i] = lineData_single;
               }
-
+              mapstate.color = line_datasets[0].borderColor;
               // console.log(line_datasets);
               lineChart({
                 Type: "D",
@@ -231,8 +235,6 @@
               // line by unit
               break;
             case 'F':  //normal map
-              // cleanMaps();
-              console.log("FF");
               if (mapstate.map !== 'normal') {
                 cleanMaps();
                 normalMap();
@@ -245,13 +247,16 @@
               //   normalMap_point(spatialType);
               // }
               changemapcolor(mapstate,'none');
-              mapstate = {"map":"normal","area":[],"point":[]};
+              mapstate = {"map":"normal","area":[],"point":[],"color":mapstate.color};
+              if(splitdata[3] === "顏色") {
+                mapstate.color = data.substring(data.indexOf("[[")+2, data.indexOf("]]")).split(",")[0];
+              }
               if(spatialType === "縣市"){
                 mapstate.area.push($("#sel3 :selected").text());
               } else {
                 mapstate.point.push($("#sel3 :selected").text());
               }
-              changemapcolor(mapstate,'red');
+              changemapcolor(mapstate, mapstate.color);
               break;
             case 'G':  //raster map
               cleanMaps();
@@ -279,7 +284,7 @@
               cleanCanvas();
               lightChart({
                 Type: "I",
-                Light: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(","),
+                Light: data.substring( data.indexOf("[[")+2, data.indexOf("]") ).split(","),
                 Timescale: splitdata[2]
               },0);
               break;
