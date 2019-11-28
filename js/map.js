@@ -204,7 +204,7 @@ function normalMap() {
         .data(geoMultiPolygon.features)
         .enter()
         .append("path")
-        .attr("class","map_point")
+        .attr("class","map_town")
         .attr("d", path)
         .attr("id", function(d){
           return d.properties.Name

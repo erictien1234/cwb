@@ -205,6 +205,14 @@
             echo '['.'[' . $row1['DATA'] . ']'.']';
           }
         }
+      } elseif ($table == 'dengue_fever_prediction_day' || $table == 'DENGUE_FEVER_PREDICTION_DAY') {
+        $sql1 = "SELECT DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
+        $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");
+        if (mysqli_num_rows($result1) > 0) {
+          while($row1 = mysqli_fetch_assoc($result1)) {
+            echo '['.'[' . $row1['DATA'] . ']'.']';
+          }
+        }
       } elseif (strpos($ptype,'A') !== false) {
         $sql1 = "SELECT LABEL, DATA FROM {$table} t inner JOIN {$cname} c on c.{$cname}_ID = t.{$cname}_ID WHERE TIME_START = '{$date}' AND {$cname}_NAME = '{$where}'";
         $result1 = mysqli_query($_SESSION['link'] , $sql1) or die("MySQL query error");

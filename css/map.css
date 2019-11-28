@@ -34,3 +34,8 @@ path.map_point {
   fill: none;
   stroke: none;
 }
+
+path.map_town {
+  fill: none;
+  stroke: none;
+}

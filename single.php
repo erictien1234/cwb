@@ -111,8 +111,8 @@
         let week_date = [];
         let week_date_short= [];
         let inputData = [];
-        for (var i = 0; i < splitdata[0].split(';').length; i++) {
-          switch (splitdata[0].split(';')[i]) {
+        for (let k = 0; k < splitdata[0].split(';').length; k++) {
+          switch (splitdata[0].split(';')[k]) {
             case 'A':  //pie
               //  F;A,月,縣市,1.安全2.警戒預備3.嚴重警戒4.高溫警戒,[嚴重警戒=37][安全=0.1][寒冷危險=59.6][警界預備=3.3]
               cleanCanvas();
@@ -131,7 +131,7 @@
                   labels: data.substring(data.indexOf("[")+1, data.length-1).split("][").map((item => item.substring(0, item.indexOf("=")))),
                 },
               };
-              pieChart(pie_data,0)
+              pieChart(pie_data,0);
               break;
             case 'B': //bar
               cleanCanvas();
@@ -173,7 +173,7 @@
                 StartDate,
                 Location: $("#sel3 :selected").text(),
                 TimeScale: splitdata[1],
-              },0)
+              },0);
               break;
             case 'C':
               // bar by unit
@@ -225,13 +225,14 @@
                 StartDate,
                 Location: $("#sel3 :selected").text(),
                 TimeScale: splitdata[1],
-              },0)
+              },0);
               break;
             case 'E':
               // line by unit
               break;
             case 'F':  //normal map
               // cleanMaps();
+              console.log("FF");
               if (mapstate.map !== 'normal') {
                 cleanMaps();
                 normalMap();
@@ -280,7 +281,7 @@
                 Type: "I",
                 Light: data.substring( data.indexOf("[")+1, data.indexOf("]") ).split(","),
                 Timescale: splitdata[2]
-              },0)
+              },0);
               break;
           }
         }
