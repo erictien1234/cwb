@@ -61,6 +61,9 @@
               <canvas id="myLineChart"></canvas>
             </div> -->
           </div>
+          <div>
+            <p class="info mx-2" style="display: inline-block"></p><a target="_blank" href="" class="info mx-2" style="display: inline-block"></a>
+          </div>
           <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
           <script src="./js/chart_new.js"></script>
         </div>
@@ -290,7 +293,20 @@
               break;
           }
         }
-        $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text())
+        $("h6.resulttitle").text($("#sel1 option:selected").text() + " : " + $("#sel3 option:selected").text());
+        if($("#sel1 option:selected").text() == "後三個月各週燈號預測"){
+          $("p.info").text("水情燈號說明");
+          $("a.info").text("https://www.wra.gov.tw/6996/7351/7354/13843/");
+          $("a.info").attr("href","https://www.wra.gov.tw/6996/7351/7354/13843/");
+        } else if ($("#sel1 option:selected").text() == "登革熱當日燈號預警") {
+          $("p.info").text("登革熱燈號說明與來源");
+          $("a.info").text("https://hhws.etws.tw/webpage/Map.aspx");
+          $("a.info").attr("href","https://hhws.etws.tw/webpage/Map.aspx");
+        } else if ($("#sel1 option:selected").text() == "高溫預警WGEN機率加權法則(一般民眾)" || $("#sel1 option:selected").text() == "低溫預警WGEN機率加權法則(一般民眾)"){
+          $("p.info").text("極端溫度預警系統說明(需登入)");
+          $("a.info").text("https://hhws.etws.tw/webpage/PredictionSet.aspx");
+          $("a.info").attr("href","https://hhws.etws.tw/webpage/PredictionSet.aspx");
+        }
       })
     }
     else {
