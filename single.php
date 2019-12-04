@@ -115,6 +115,9 @@
         let week_date_short= [];
         let inputData = [];
         for (let k = 0; k < splitdata[0].split(';').length; k++) {
+          if (splitdata[0].split(';').length == 1 && splitdata[0].split(';')[k] == 'F') {
+            cleanCanvas();
+          }
           switch (splitdata[0].split(';')[k]) {
             case 'A':  //pie
               //  F;A,月,縣市,1.安全2.警戒預備3.嚴重警戒4.高溫警戒,[嚴重警戒=37][安全=0.1][寒冷危險=59.6][警界預備=3.3]
